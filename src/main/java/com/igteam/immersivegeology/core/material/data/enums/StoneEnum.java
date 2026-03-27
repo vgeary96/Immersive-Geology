@@ -74,17 +74,17 @@ public enum StoneEnum implements MaterialInterface<MaterialStone> {
     MCEndStone(new MaterialMCEndStone()),
     MCNetherrack(new MaterialMCNetherrack()),
     MCDripstone(new MaterialMCDripstone()),
-    MCSandstone(new MaterialMCSandstone());
+    MCSandstone(new MaterialMCSandstone()),
 
     //===== Minecraft Sands =====\\
     //Sand(new MaterialSand()),
 
     //===== Beyond Earth / Ad Astra =====\\
-    //MoonStone(new MaterialMoonStone()),
-    //MarsStone(new MaterialMarsStone()),
-    //MercuryStone(new MaterialMercuryStone()),
-    //VenusStone(new MaterialVenusStone()),
-    //GlacioStone(new MaterialGlacioStone());
+    MoonStone(new MaterialMoonStone()),
+    MarsStone(new MaterialMarsStone());
+    // MercuryStone(new MaterialMercuryStone()),
+    // VenusStone(new MaterialVenusStone()),
+    // GlacioStone(new MaterialGlacioStone());
 
     public static final Codec<StoneEnum> CODEC = Codec.STRING.xmap(StoneEnum::valueOf, Enum::name);
     private static final Map<String, StoneEnum> stoneEnumMap = new HashMap<>();
@@ -112,6 +112,13 @@ public enum StoneEnum implements MaterialInterface<MaterialStone> {
 
             // Try direct lookup of the stone name
             StoneEnum result = stoneEnumMap.get(stoneName.toLowerCase());
+            if(result!=null)
+            {
+                return result;
+            }
+
+            // Fallback: try without underscores (handles mod blocks like ad_astra's moon_stone)
+            result = stoneEnumMap.get(stoneName.toLowerCase().replace("_", ""));
             if(result!=null)
             {
                 return result;

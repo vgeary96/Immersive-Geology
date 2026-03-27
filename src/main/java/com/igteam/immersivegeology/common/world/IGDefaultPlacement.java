@@ -134,7 +134,7 @@ public class IGDefaultPlacement extends PlacementFilter
 		}
 		else
 		{
-			boolean possiblePlace = canPlaceVein(chunkPos, seed, config) && canSpawnAt(biome);
+			boolean possiblePlace = canPlaceVein(chunkPos, seed, config);
 			if(!possiblePlace) return false;
 			RandomSource random = IGOreGenUtils.getReuseRandom(entry, level.getSeed(), chunkPos);
 			Vein vein = IGOreFeature.createVein(random, config, entry);
