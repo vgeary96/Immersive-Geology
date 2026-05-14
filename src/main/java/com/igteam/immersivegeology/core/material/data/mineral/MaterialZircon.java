@@ -45,4 +45,10 @@ public class MaterialZircon extends MaterialMineral {
     {
         return 0.19122314f;
     }
+
+    @Override
+    public List<String> getAcceptableDimensions()
+    {
+        return List.of("ad_astra:mars", "minecraft:the_end");
+    }
 }

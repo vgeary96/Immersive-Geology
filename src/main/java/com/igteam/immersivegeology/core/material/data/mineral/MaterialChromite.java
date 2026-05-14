@@ -68,4 +68,10 @@ public class MaterialChromite extends MaterialMineral {
     {
         return 0.105895996f;
     }
+
+    @Override
+    public List<String> getAcceptableDimensions()
+    {
+        return List.of("ad_astra:moon", "minecraft:the_end");
+    }
 }
