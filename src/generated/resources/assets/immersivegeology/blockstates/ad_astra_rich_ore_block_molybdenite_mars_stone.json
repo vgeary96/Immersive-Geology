@@ -1,0 +1,14 @@
+{
+  "multipart": [
+    {
+      "apply": [
+        {
+          "model": "immersivegeology:block/ore_block/ad_astra/rich/molybdenite_mars_stone_variation_1"
+        },
+        {
+          "model": "immersivegeology:block/ore_block/ad_astra/rich/molybdenite_mars_stone_variation_2"
+        }
+      ]
+    }
+  ]
+}

@@ -50,7 +50,7 @@ public class MaterialApatite extends MaterialSulphideMineral {
     @Override
     public List<String> getAcceptableDimensions()
     {
-        return List.of("minecraft:overworld");
+        return List.of("minecraft:overworld", "minecraft:the_end");
     }
 
     @Override

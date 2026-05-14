@@ -1,0 +1,14 @@
+{
+  "multipart": [
+    {
+      "apply": [
+        {
+          "model": "immersivegeology:block/ore_block/ad_astra/rich/cobaltite_moon_stone_variation_1"
+        },
+        {
+          "model": "immersivegeology:block/ore_block/ad_astra/rich/cobaltite_moon_stone_variation_2"
+        }
+      ]
+    }
+  ]
+}

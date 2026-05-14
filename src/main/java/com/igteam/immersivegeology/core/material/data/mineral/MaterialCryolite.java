@@ -90,6 +90,6 @@ public class MaterialCryolite extends MaterialMineral {
 
     public List<String> getAcceptableDimensions()
     {
-        return List.of("minecraft:the_end");
+        return List.of("minecraft:the_end", "ad_astra:mars");
     }
 }

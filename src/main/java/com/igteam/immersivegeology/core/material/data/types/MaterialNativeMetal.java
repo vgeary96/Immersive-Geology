@@ -14,12 +14,13 @@ public class MaterialNativeMetal extends MaterialMetal {
         addFlags(BlockCategoryFlags.ORE_BLOCK);
         this.acceptableStoneTypes.add(StoneFormation.SEDIMENTARY);
         this.acceptableStoneTypes.add(StoneFormation.IGNEOUS_EXTRUSIVE);
+        this.acceptableStoneTypes.add(StoneFormation.END_STONE);
         this.CONFIG = new MaterialMineral.MineralConfig(8,50,1,-48,112,10,0.5, false, Optional.empty(), IGGenerationType.DEFAULT);
     }
 
     @Override
     public List<String> getAcceptableDimensions()
     {
-        return List.of("minecraft:overworld");
+        return List.of("minecraft:overworld", "minecraft:the_end");
     }
 }

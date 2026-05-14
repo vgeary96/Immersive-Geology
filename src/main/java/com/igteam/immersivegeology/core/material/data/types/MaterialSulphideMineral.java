@@ -36,6 +36,6 @@ public class MaterialSulphideMineral extends MaterialMineral
 
 	public List<String> getAcceptableDimensions()
 	{
-		return List.of("minecraft:the_nether");
+		return List.of("minecraft:the_nether", "minecraft:the_end");
 	}
 }

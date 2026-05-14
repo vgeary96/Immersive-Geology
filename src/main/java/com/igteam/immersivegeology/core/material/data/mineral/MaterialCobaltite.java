@@ -96,4 +96,10 @@ public class MaterialCobaltite extends MaterialSulphideMineral
     {
         return 0.11743164f;
     }
+
+    @Override
+    public List<String> getAcceptableDimensions()
+    {
+        return List.of("minecraft:overworld", "minecraft:the_end", "ad_astra:moon");
+    }
 }

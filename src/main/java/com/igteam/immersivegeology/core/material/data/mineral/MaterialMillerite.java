@@ -105,6 +105,6 @@ public class MaterialMillerite extends MaterialSulphideMineral
     @Override
     public List<String> getAcceptableDimensions()
     {
-        return List.of("minecraft:overworld", "minecraft:the_nether");
+        return List.of("minecraft:overworld", "minecraft:the_nether", "ad_astra:moon");
     }
 }

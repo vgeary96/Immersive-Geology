@@ -526,7 +526,7 @@ public class IGRecipes extends RecipeProvider
 	}
 
 	private static final List<MetalEnum> plates_and_rods_to_register = List.of(
-			MetalEnum.HighSpeedSteel, MetalEnum.Thorium, MetalEnum.Titanium, MetalEnum.Hastelloy, MetalEnum.Unobtanium,
+			MetalEnum.HighSpeedSteel, MetalEnum.Thorium, MetalEnum.Titanium, MetalEnum.Hastelloy, MetalEnum.Kovar, MetalEnum.Unobtanium,
 			MetalEnum.Vanadium, MetalEnum.Zirconium, MetalEnum.TungstenCarbide, MetalEnum.Manganese, MetalEnum.Chromium,
 			MetalEnum.Magnesium, MetalEnum.Molybdenum, MetalEnum.StainlessSteel, MetalEnum.Neodymium);
 

@@ -2,8 +2,7 @@
   "language": "English",
   "language.code": "en_us",
   "language.region": "United States",
-
-  "desc.immersiveengineering.info.blueprint.electronics":"Advanced Electronics",
+  "desc.immersiveengineering.info.blueprint.electronics": "Advanced Electronics",
   "itemGroup.immersivegeology": "Immersive Geology",
   "itemGroup.immersivegeology.geologic": " Geologic",
   "itemGroup.immersivegeology.pyrometallurgy": " Pyrometallurgy",
@@ -19,17 +18,14 @@
   "block.immersivegeology.small_chemical_reactor": "Small Chemical Reactor",
   "block.immersivegeology.foundry": "Foundry",
   "block.immersivegeology.geohint": "Generation Hint",
-
   "immersivegeology.prospecting_pick.found": "%s",
   "immersivegeology.prospecting_pick.nothing": "Found Nothing",
-
   "command.immersivegeology.veinlocate": "Located %s ore vein at %s (%s blocks away)",
   "manual.immersivegeology.main": "Immersive Geology",
   "manual.immersivegeology.direct_blasting.subtext": "Direct Blasting",
   "manual.immersivegeology.sulphide_electrowining.subtext": "Sulphide Electrowining",
   "manual.immersivegeology.hunter_process.subtext": "Hunter Process",
   "manual.immersivegeology.becher_process.subtext": "Becher Process",
-
   "desc.immersiveengineering.info.mineral.chromite_magnetite_mix": "Chromite Magnetite Mix",
   "desc.immersiveengineering.info.mineral.carnallitic_salt_tube": "Carnallitic Salt Tube",
   "desc.immersiveengineering.info.mineral.basaltic_pegmatite": "Basaltic Pegmatite",
@@ -40,13 +36,11 @@
   "desc.immersiveengineering.info.mineral.titaniferous_magnetite_layer": "Titaniferous Magnetite Layer",
   "desc.immersiveengineering.info.mineral.volcanic_tube": "Volcanic Tube",
   "desc.immersiveengineering.info.mineral.phosphate_deposit": "Phosphate Deposit",
-
   "desc.immersiveengineering.info.mineral.skarn_deposit": "Skarn Deposit",
   "desc.immersiveengineering.info.mineral.contact_metamorphic_deposit": "Contact Metamorphic Deposit",
   "desc.immersiveengineering.info.mineral.sandstone_deposit": "Sandstone Deposit",
   "desc.immersiveengineering.info.mineral.coal_seam": "Coal Seam",
   "desc.immersiveengineering.info.mineral.carbonate_cave_deposit": "Carbonate Cave Deposit",
-
   "manual.immersivegeology.bug_bounty_contributors": "Bug Bounty Contributors",
   "manual.immersivegeology.ig_processing_chains": "Processing Chains",
   "manual.immersivegeology.ig_metal_chains": "Metals",
@@ -57,7 +51,6 @@
   "manual.immersivegeology.overworld": "Overworld",
   "manual.immersivegeology.nether": "Nether",
   "manual.immersivegeology.the_end": "The End",
-
   "skin.immersivegeology.muddykat": "Muddykat's",
   "skin.immersivegeology.radioisotopics": "Radioisotopics's",
   "skin.immersivegeology.peter": "Peter's",
@@ -68,7 +61,6 @@
   "skin.immersivegeology.yeshwamp": "Yeshwamp's",
   "skin.immersivegeology.bilebirda": "Bilebirda's",
   "skin.immersivegeology.the_northern_harpy": "The Northern Harpy's",
-
   "skin.immersivegeology.steampunk": "Steam Punk",
   "skin.immersivegeology.hazard": "Hazard",
   "skin.immersivegeology.rusted": "Rusted",
@@ -80,10 +72,8 @@
   "skin.immersivegeology.pumpkin": "Pumpkin",
   "skin.immersivegeology.green": "Eco Friendly",
   "skin.immersivegeology.industrial": "Industrial",
-
   "skin.immersivegeology.description": "%s %s %s",
   "skin.immersivegeology.description.skin": "Skin: %s",
-
   "skin.immersivegeology.credit.developer": "Developer Skin",
   "skin.immersivegeology.credit.artist": "Artist Skin",
   "skin.immersivegeology.credit.peter": "Künstler Skin",
@@ -91,7 +81,6 @@
   "skin.immersivegeology.credit.bughunter": "Bug Hunter ",
   "skin.immersivegeology.credit.supporter": "Supporter Skin",
   "skin.immersivegeology.credit.founder": "Founder Skin",
-
   "manual.immersivegeology.hall-heroit_process.subtext": "Hall-Heroit Process",
   "manual.immersivegeology.bayer_process.subtext": "Bayer Process",
   "manual.immersivegeology.minerals": "Minerals",
@@ -125,6 +114,7 @@
   "manual.immersivegeology.osmium": "Osmium",
   "manual.immersivegeology.platinum": "Platinum",
   "manual.immersivegeology.hastelloy": "Hastelloy",
+  "manual.immersivegeology.kovar": "Kovar",
   "manual.immersivegeology.silver": "Silver",
   "manual.immersivegeology.steel": "Steel",
   "manual.immersivegeology.stainless_steel": "Stainless Steel",
@@ -170,7 +160,6 @@
   "manual.immersivegeology.pyrite": "Pyrite",
   "manual.immersivegeology.vanadinite": "Vanadinite",
   "manual.immersivegeology.kaolinite": "Kaolinite",
-
   "manual.immersivegeology.alumina": "Alumina",
   "manual.immersivegeology.acanthite": "Acanthite",
   "manual.immersivegeology.zircon": "Zircon",
@@ -181,7 +170,6 @@
   "manual.immersivegeology.gypsum": "Gypsum",
   "manual.immersivegeology.uraninite": "Uraninite",
   "manual.immersivegeology.millerite": "Millerite",
-
   "manual.immersivegeology.ilmenite": "Ilmenite",
   "manual.immersivegeology.ferberite": "Ferberite",
   "manual.immersivegeology.hubnerite": "Hubnerite",
@@ -190,14 +178,11 @@
   "manual.immersivegeology.lignite": "Lignite",
   "manual.immersivegeology.cryolite": "Cryolite",
   "manual.immersivegeology.unobtania": "Unobtania",
-
-
   "immersivegeology.gui.basic_chemical_reactor.nominal_status": "Nominal",
   "immersivegeology.gui.basic_chemical_reactor.worn_status": "Worn",
   "immersivegeology.gui.basic_chemical_reactor.damaged_status": "Damaged",
   "immersivegeology.gui.basic_chemical_reactor.failed_status": "Failed",
   "immersivegeology.gui.basic_chemical_reactor.output_blocked": "Output Blocked",
-
   "immersivegeology.gui.schematic_table.button_0": "Previous Schematic",
   "immersivegeology.gui.schematic_table.button_1": "Next Schematic",
   "immersivegeology.gui.schematic_table.mirror": "Mirrored",
@@ -225,7 +210,6 @@
   "item.immersivegeology.flask": "Flask of %s",
   "item.immersivegeology.cloudy_flask_slurry": "Flask of Cloudy %1$s %2$s",
   "item.immersivegeology.empty_flask": "Empty %s Flask",
-
   "item.immersivegeology.ingot": "%s Ingot",
   "item.immersivegeology.skin_component": "%s Mod Kit",
   "item.immersivegeology.skin_component.description": "%s %s",
@@ -266,7 +250,6 @@
   "item.immersivegeology.rich_ore": "Rich %s",
   "item.immersivegeology.pellet": "%s Pellet",
   "item.immersivegeology.oxide_pellet": "%s Oxide Pellet",
-
   "block.immersivegeology.industrialsluice": "Industrial Sluice",
   "block.immersivegeology.turbine_fuel": "Steam Turbine Fuel",
   "block.immersivegeology.geothermal_exchanger": "Geothermal Exchanger",
@@ -310,12 +293,10 @@
   "material.immersivegeology.ore.poor": "Poor",
   "material.immersivegeology.ore.normal": "",
   "material.immersivegeology.ore.rich": "Rich",
-
   "machine.immersivegeology.machine_steel_rotary_kiln": "Rotary Kiln",
   "machine.immersivegeology.bloomery": "Bloomery",
   "machine.immersivegeology.hydrojet": "Hydrojet Cutter",
   "machine.immersivegeology.ballmill": "Ballmill",
-
   "block.immersivegeology.pelletizer": "Pelletizer",
   "block.immersivegeology.rotary_kiln": "Rotary Kiln",
   "block.immersivegeology.rotarykiln": "Rotary Kiln",
@@ -323,13 +304,12 @@
   "block.immersivegeology.centrifuge": "Centrifuge",
   "block.immersivegeology.trommel": "Trommel",
   "block.immersivegeology.machine_iron_hydrojet_cutter": "Hydrojet Cutter",
-  "block.immersivegeology.crystallizer" : "Crystallizer",
-  "block.immersivegeology.gravity_separator" : "Gravity Separator",
-  "block.immersivegeology.chemical_reactor" : "Chemical Reactor",
-  "block.immersivegeology.reverberation_furnace" : "Reverberation Furnace",
+  "block.immersivegeology.crystallizer": "Crystallizer",
+  "block.immersivegeology.gravity_separator": "Gravity Separator",
+  "block.immersivegeology.chemical_reactor": "Chemical Reactor",
+  "block.immersivegeology.reverberation_furnace": "Reverberation Furnace",
   "block.immersivegeology.bloomery": "Crude Bloomery",
   "block.immersivegeology.ballmill": "Ballmill",
-
   "fluid.immersivegeology.fluid": "%s",
   "fluid.immersivegeology.fluid_molten": "Molten %s",
   "fluid.immersivegeology.gas": "%s",
@@ -337,10 +317,8 @@
   "fluid.immersivegeology.complex_slurry": "%s%s Acid",
   "fluid.immersivegeology.cloudy_complex_slurry": "Cloudy %1$s%2$s Acid",
   "fluid.immersivegeology.cloudy_slurry": "Cloudy %1$s %2$s",
-
   "material.immersivegeology.steam": "Steam",
   "material.immersivegeology.high_pressure_steam": "High Pressure Steam",
-
   "material.immersivegeology.rusty_metal": "Ruined",
   "material.immersivegeology.engineering.rusty_metal": "Ruined Light",
   "material.immersivegeology.adv_engineering.rusty_metal": "Ruined Heavy",
@@ -376,7 +354,6 @@
   "material.immersivegeology.shale": "Shale",
   "material.immersivegeology.quartzite": "Quartzite",
   "material.immersivegeology.conglomerate": "Conglomerate",
-
   "material.immersivegeology.reinforced_refractory_brick": "Reinforced Refractory Brick",
   "material.immersivegeology.refractory_brick": "Refractory Brick",
   "material.immersivegeology.granite": "Granite",
@@ -384,10 +361,10 @@
   "material.immersivegeology.andesite": "Andesite",
   "material.immersivegeology.end_stone": "End Stone",
   "material.immersivegeology.netherrack": "Netherrack",
-
   "material.immersivegeology.gold": "Gold",
   "material.immersivegeology.apatite": "Apatite",
   "material.immersivegeology.hastelloy": "Hastelloy",
+  "material.immersivegeology.kovar": "Kovar",
   "material.immersivegeology.bronze": "Bronze",
   "material.immersivegeology.bituminous": "Bituminous Coal",
   "material.immersivegeology.anthracite": "Anthracite",
@@ -400,8 +377,6 @@
   "material.immersivegeology.phlebotinum": "Phlebotinum",
   "material.immersivegeology.refined_uranium": "Refined Uranium",
   "material.immersivegeology.silicon": "Silicon",
-
-
   "material.immersivegeology.stone": "Stone",
   "material.immersivegeology.ehv_insulation": "EHV Insulation",
   "material.immersivegeology.wolframite": "Wolframite",
@@ -431,14 +406,12 @@
   "material.immersivegeology.arsenic": "Arsenic",
   "material.immersivegeology.antimony": "Antimony",
   "material.immersivegeology.osmium": "Osmium",
-
   "material.immersivegeology.constantan": "Constantan",
   "material.immersivegeology.electrum": "Electrum",
   "material.immersivegeology.steel": "Steel",
   "material.immersivegeology.stainless_steel": "Stainless Steel",
   "material.immersivegeology.high_speed_steel": "High Speed Steel",
   "material.immersivegeology.tungsten_carbide": "Tungsten Carbide",
-
   "material.immersivegeology.monazite": "Monazite",
   "material.immersivegeology.diamond": "Diamond",
   "material.immersivegeology.pyrite": "Pyrite",
@@ -485,7 +458,6 @@
   "material.immersivegeology.trconcrete": "Titanium Reinforced Concrete",
   "material.immersivegeology.srconcrete": "Steel Reinforced Concrete",
   "material.immersivegeology.reinforced_refractory": "Reinforced Refractory",
-
   "material.immersivegeology.sulfur_dioxide": "Sulfur Dioxide",
   "material.immersivegeology.aqua_regia": "Aqua Regia",
   "material.immersivegeology.chemical_waste": "Chemical Waste",
@@ -497,7 +469,6 @@
   "material.immersivegeology.hydrofluoric_acid": "Hydrofluoric Acid",
   "material.immersivegeology.brine": "Brine",
   "material.immersivegeology.sodium_hydroxide": "Sodium Hydroxide",
-
   "component.immersivegeology.hydrochloric_acid": "Chloride",
   "component.immersivegeology.sulfuric_acid": "Sulfate",
   "component.immersivegeology.nitric_acid": "Nitrate",
@@ -508,30 +479,26 @@
   "component.immersivegeology.ammonia_solution": "Amide",
   "component.immersivegeology.aqua_regia": "Chloro",
   "component.immersivegeology.brine": "Brine",
-
   "component.immersivegeology.gold": "auric",
   "component.immersivegeology.platinum": "platinic",
-
   "immersivegeology.multiblock.formation.failed": "This tool isn't able to form this Multiblock.",
-  "desc.immersiveengineering.info.multiblock.IE:ChemicalVat":"Chemical Vat",
-  "desc.immersiveengineering.info.multiblock.IE:Crystallizer":"Crystallizer",
-  "desc.immersiveengineering.info.multiblock.IE:GravitySeparator":"Gravity Separator",
-  "desc.immersiveengineering.info.multiblock.IE:HydroJetCutter":"Hydrojet Cutter",
-  "desc.immersiveengineering.info.multiblock.IE:ReverberationFurnace":"Reverberation Furnace",
-  "desc.immersiveengineering.info.multiblock.IE:rotary_kiln":"Rotary Kiln",
-
-  "desc.immersiveengineering.info.mineral.lead_bearing_sulfide" : "Lead-bearing Sulfides",
-  "desc.immersiveengineering.info.mineral.copper_bearing_sulfide" : "Copper-bearing Sulfides",
-  "desc.immersiveengineering.info.mineral.cobalt_bearing_sulfide" : "Cobalt-bearing Sulfides",
-  "desc.immersiveengineering.info.mineral.fine_alluvial_sediment" : "Fine Alluvial Sediments",
-  "desc.immersiveengineering.info.mineral.ig_wolframite" : "Wolframite",
-  "desc.immersiveengineering.info.mineral.metamorphic_intrusion" : "Igneous Intrusions",
-  "desc.immersiveengineering.info.mineral.tin_bearing_oxides" : "Tin-Bearing Oxides",
-  "desc.immersiveengineering.info.mineral.copper_bearing_oxides" : "Copper-bearing Oxides",
-  "desc.immersiveengineering.info.mineral.alluvial_sediment" : "Alluvial Sediments",
-  "desc.immersiveengineering.info.mineral.deteriorated_igneous_rock" : "Deteriorated Radioactive Sediments",
-  "desc.immersiveengineering.info.mineral.evaporite_sediment" : "Evaporite Sediments",
-
+  "desc.immersiveengineering.info.multiblock.IE:ChemicalVat": "Chemical Vat",
+  "desc.immersiveengineering.info.multiblock.IE:Crystallizer": "Crystallizer",
+  "desc.immersiveengineering.info.multiblock.IE:GravitySeparator": "Gravity Separator",
+  "desc.immersiveengineering.info.multiblock.IE:HydroJetCutter": "Hydrojet Cutter",
+  "desc.immersiveengineering.info.multiblock.IE:ReverberationFurnace": "Reverberation Furnace",
+  "desc.immersiveengineering.info.multiblock.IE:rotary_kiln": "Rotary Kiln",
+  "desc.immersiveengineering.info.mineral.lead_bearing_sulfide": "Lead-bearing Sulfides",
+  "desc.immersiveengineering.info.mineral.copper_bearing_sulfide": "Copper-bearing Sulfides",
+  "desc.immersiveengineering.info.mineral.cobalt_bearing_sulfide": "Cobalt-bearing Sulfides",
+  "desc.immersiveengineering.info.mineral.fine_alluvial_sediment": "Fine Alluvial Sediments",
+  "desc.immersiveengineering.info.mineral.ig_wolframite": "Wolframite",
+  "desc.immersiveengineering.info.mineral.metamorphic_intrusion": "Igneous Intrusions",
+  "desc.immersiveengineering.info.mineral.tin_bearing_oxides": "Tin-Bearing Oxides",
+  "desc.immersiveengineering.info.mineral.copper_bearing_oxides": "Copper-bearing Oxides",
+  "desc.immersiveengineering.info.mineral.alluvial_sediment": "Alluvial Sediments",
+  "desc.immersiveengineering.info.mineral.deteriorated_igneous_rock": "Deteriorated Radioactive Sediments",
+  "desc.immersiveengineering.info.mineral.evaporite_sediment": "Evaporite Sediments",
   "manual.immersivegeology.generic.desc": "The Spawning Properties of %1$s can be found on the next page.",
   "manual.immersivegeology.generic.pre_chain_desc": "%1$s can be processed into %2$s, the processing chains available are detailed on the next page. Please Note the 64^2 Chunk Area Probability is an estimation and some terrain conditions can affect generation.",
   "manual.immersivegeology.min_y": "Min Y",
@@ -545,12 +512,10 @@
   "manual.immersivegeology.can_spawn": "Can Spawn",
   "manual.immersivegeology.density": "Vein Density",
   "manual.immersivegeology.generation_probability": "64^2ca Probability",
-
   "manual.immersivegeology.lv_heat": "LV Heat",
   "manual.immersivegeology.mv_heat": "MV Heat",
   "manual.immersivegeology.hv_heat": "HV Heat",
   "manual.immersivegeology.ehv_heat": "EHV Heat",
-
   "advancement.immersivegeology.root": "Immersive Geology",
   "advancement.immersivegeology.root.desc": "Obtain refractory clay",
   "advancement.immersivegeology.mb_bloomery": "Smelting Works",
@@ -573,26 +538,23 @@
   "advancement.immersivegeology.mb_crystallizer.desc": "Build Crystallizer",
   "advancement.immersivegeology.aluminum_ingot": "High-tech Metal",
   "advancement.immersivegeology.aluminum_ingot.desc": "Obtain aluminum Ingot",
-
   "advancement.immersivegeology.metal_crystal": "Shinies?",
   "advancement.immersivegeology.metal_crystal.desc": "Obtain any metal crystal",
-
   "material.immersivegeology.engineering.stainless_steel": "Basic Computational",
   "material.immersivegeology.engineering.aluminum": "Advanced Computational",
   "material.immersivegeology.engineering.tungsten": "Thermal",
   "material.immersivegeology.engineering.hastelloy": "Chemical",
+  "material.immersivegeology.engineering.kovar": "Kovar",
   "block.immersivegeology.engineering_block": "%s Engineering Block",
   "block.immersivegeology.advanced_engineering_block": "%s Engineering Block",
   "block.immersivegeology.srconcrete": "Steel Reinforced Concrete",
   "block.immersivegeology.energy_pipe": "Extra High Voltage Ground Cable",
   "block.immersivegeology.trconcrete": "Titanium Reinforced Concrete",
   "block.immersivegeology.evaporate_crystal": "%s Evaporate Crystal Block",
-
   "item.immersivegeology.raw_fire_clay": "Fire Clay Ball",
   "item.immersivegeology.refractory_brick": "Refractory Brick",
   "immersivegeology.item.text.contains": "Processed into:",
   "immersivegeology.item.text.sources": "Sources:",
-
   "block.immersivegeology.tfc_rich_ore_block_molybenite_marble.prospected": "Molybenite",
   "block.immersivegeology.tfc_normal_ore_block_molybenite_marble.prospected": "Molybenite",
   "block.immersivegeology.tfc_poor_ore_block_molybenite_marble.prospected": "Molybenite",

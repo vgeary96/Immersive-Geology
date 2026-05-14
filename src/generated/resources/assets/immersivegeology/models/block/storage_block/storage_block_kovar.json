@@ -1,0 +1,7 @@
+{
+  "parent": "immersivegeology:block/base/block",
+  "textures": {
+    "all": "immersivegeology:palette/block/storage_block/type_1_pristine_kovar",
+    "particle": "immersivegeology:palette/block/storage_block/type_1_pristine_kovar"
+  }
+}

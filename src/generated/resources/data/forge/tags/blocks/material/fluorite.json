@@ -143,6 +143,30 @@
     {
       "id": "immersivegeology:minecraft_rich_ore_block_fluorite_granite",
       "required": false
+    },
+    {
+      "id": "immersivegeology:minecraft_poor_ore_block_fluorite_end_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:minecraft_normal_ore_block_fluorite_end_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:minecraft_rich_ore_block_fluorite_end_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_poor_ore_block_fluorite_moon_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_normal_ore_block_fluorite_moon_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_rich_ore_block_fluorite_moon_stone",
+      "required": false
     }
   ]
 }
