@@ -182,6 +182,33 @@
     "immersivegeology:minecraft_rich_ore_block_lead_diorite",
     "immersivegeology:minecraft_poor_ore_block_lead_granite",
     "immersivegeology:minecraft_normal_ore_block_lead_granite",
-    "immersivegeology:minecraft_rich_ore_block_lead_granite"
+    "immersivegeology:minecraft_rich_ore_block_lead_granite",
+    "immersivegeology:minecraft_poor_ore_block_lead_end_stone",
+    "immersivegeology:minecraft_normal_ore_block_lead_end_stone",
+    "immersivegeology:minecraft_rich_ore_block_lead_end_stone",
+    {
+      "id": "immersivegeology:ad_astra_poor_ore_block_lead_moon_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_normal_ore_block_lead_moon_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_rich_ore_block_lead_moon_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_poor_ore_block_lead_mars_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_normal_ore_block_lead_mars_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_rich_ore_block_lead_mars_stone",
+      "required": false
+    }
   ]
 }

@@ -91,4 +91,10 @@ public class MaterialMolybdenite extends MaterialSulphideMineral
     {
         return 0.05895996f;
     }
+
+    @Override
+    public List<String> getAcceptableDimensions()
+    {
+        return List.of("minecraft:the_nether", "minecraft:the_end", "ad_astra:moon");
+    }
 }

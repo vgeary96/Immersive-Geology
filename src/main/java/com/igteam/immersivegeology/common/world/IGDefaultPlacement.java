@@ -21,6 +21,7 @@ import com.igteam.immersivegeology.common.world.placements.IGCountPlacement;
 import com.igteam.immersivegeology.core.lib.IGLib;
 import com.igteam.immersivegeology.core.material.GeologyMaterial;
 import com.igteam.immersivegeology.core.material.data.enums.StoneEnum;
+import com.igteam.immersivegeology.core.material.data.stone.compat.adastra.MaterialAdAstraStone;
 import com.igteam.immersivegeology.core.material.helper.material.MaterialHelper;
 import com.igteam.immersivegeology.core.material.helper.material.StoneFormation;
 import com.mojang.serialization.Codec;
@@ -100,6 +101,18 @@ public class IGDefaultPlacement extends PlacementFilter
 				biomeDownfall <= config.max_downfall.get();
 	}
 
+	public boolean rollsVein(ChunkPos chunk, long seed, OreConfig config, Holder<Biome> biome, ResourceLocation dimension)
+	{
+		if(MaterialAdAstraStone.MOON.equals(dimension) || MaterialAdAstraStone.MARS.equals(dimension))
+		{
+			StoneEnum stone = MaterialAdAstraStone.MOON.equals(dimension) ? StoneEnum.MoonStone : StoneEnum.MarsStone;
+			return config.canSpawn.get() && stone.isStoneTypeValid()
+					&& entry.instance().acceptableStoneType(stone.instance()) && canPlaceVein(chunk, seed, config);
+		}
+		return (biome.containsTag(BiomeTags.IS_END) ? canPlaceVeinEnd(chunk, seed, config) : canPlaceVein(chunk, seed, config))
+				&& canSpawnAt(biome);
+	}
+
 	public PlacementModifierType<?> type() {
 		return IGWorldGen.IG_DEFAULT_PLACEMENT.get();
 	}
@@ -120,39 +133,42 @@ public class IGDefaultPlacement extends PlacementFilter
 		}
 
 		Holder<Biome> biome = level.getBiome(worldPos);
+		ResourceLocation dimension = level.getLevel().dimension().location();
+		if(!rollsVein(chunkPos, seed, config, biome, dimension)) return false;
+
+		if(MaterialAdAstraStone.MOON.equals(dimension) || MaterialAdAstraStone.MARS.equals(dimension))
+		{
+			return isVeinWorthwhile(level, chunkPos, config);
+		}
+
 		boolean isOverworld = biome.containsTag(BiomeTags.IS_OVERWORLD);
 		boolean isEnd = biome.containsTag(BiomeTags.IS_END);
 		boolean isNether = biome.containsTag(BiomeTags.IS_NETHER);
 		if(isOverworld || isNether || isEnd)
 		{
-			boolean possiblePlace = (isEnd ? canPlaceVeinEnd(chunkPos, seed, config) : canPlaceVein(chunkPos, seed, config)) && canSpawnAt(biome);
-			if(!possiblePlace) return false;
 			GeologyMaterial material = entry.instance();
 
 			boolean canSpawnOverworld = declaredStoneHosts(material, Level.OVERWORLD.location())
 					|| (tfcOverworldOverride(level) && IGTFCWorld.canHostInOverworld(material));
 			boolean canSpawnNether = declaredStoneHosts(material, Level.NETHER.location());
 			boolean canSpawnEnd = declaredStoneHosts(material, Level.END.location());
-			RandomSource random = IGOreGenUtils.getReuseRandom(entry, level.getSeed(), chunkPos);
-			Vein vein = IGOreFeature.createVein(random, config, entry);
 			if((canSpawnOverworld && isOverworld) || (canSpawnNether && isNether) || (canSpawnEnd && isEnd))
 			{
-				int maxY = config.maxY.get();
-				int minY =  config.minY.get();
-				return IGOreGenUtils.isVeinWorthwhile(level, chunkPos,  maxY, minY, vein);
+				return isVeinWorthwhile(level, chunkPos, config);
 			}
 		}
 		else
 		{
-			boolean possiblePlace = canPlaceVein(chunkPos, seed, config) && canSpawnAt(biome);
-			if(!possiblePlace) return false;
-			RandomSource random = IGOreGenUtils.getReuseRandom(entry, level.getSeed(), chunkPos);
-			Vein vein = IGOreFeature.createVein(random, config, entry);
-			int maxY = config.maxY.get();
-			int minY =  config.minY.get();
-			return IGOreGenUtils.isVeinWorthwhile(level, chunkPos,  maxY, minY, vein);
+			return isVeinWorthwhile(level, chunkPos, config);
 		}
 		return false;
+	}
+
+	private boolean isVeinWorthwhile(WorldGenLevel level, ChunkPos chunkPos, OreConfig config)
+	{
+		RandomSource random = IGOreGenUtils.getReuseRandom(entry, level.getSeed(), chunkPos);
+		Vein vein = IGOreFeature.createVein(random, config, entry);
+		return IGOreGenUtils.isVeinWorthwhile(level, chunkPos, config.maxY.get(), config.minY.get(), vein);
 	}
 	@Override
 	protected boolean shouldPlace(PlacementContext ctx, RandomSource rnd, BlockPos pos)

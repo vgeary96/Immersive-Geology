@@ -223,6 +223,7 @@
   "manual.immersivegeology.pyrite": "Pyrite",
   "manual.immersivegeology.vanadinite": "Vanadinite",
   "manual.immersivegeology.kaolinite": "Kaolinite",
+  "manual.immersivegeology.kovar": "Kovar",
 
   "manual.immersivegeology.alumina": "Alumina",
   "manual.immersivegeology.acanthite": "Acanthite",
@@ -537,6 +538,7 @@
   "material.immersivegeology.gold": "Gold",
   "material.immersivegeology.apatite": "Apatite",
   "material.immersivegeology.hastelloy": "Hastelloy",
+  "material.immersivegeology.kovar": "Kovar",
   "material.immersivegeology.bronze": "Bronze",
   "material.immersivegeology.bituminous": "Bituminous Coal",
   "material.immersivegeology.anthracite": "Anthracite",
@@ -739,6 +741,7 @@
   "material.immersivegeology.engineering.aluminum": "Advanced Computational",
   "material.immersivegeology.engineering.tungsten": "Thermal",
   "material.immersivegeology.engineering.hastelloy": "Chemical",
+  "material.immersivegeology.engineering.kovar": "Kovar",
   "block.immersivegeology.engineering_block": "%s Engineering Block",
   "block.immersivegeology.advanced_engineering_block": "%s Engineering Block",
   "block.immersivegeology.srconcrete": "Steel Reinforced Concrete",

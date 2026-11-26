@@ -1,0 +1,7 @@
+{
+  "parent": "immersivegeology:block/base/ore_block",
+  "textures": {
+    "base": "ad_astra:block/moon_stone",
+    "ore": "immersivegeology:palette/block/ore_bearing/mineral/normal_2_pristine_acanthite"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "immersivegeology:block/base/ore_block",
+  "textures": {
+    "base": "minecraft:block/end_stone",
+    "ore": "immersivegeology:block/colored/anthracite/ore/rich_1"
+  }
+}

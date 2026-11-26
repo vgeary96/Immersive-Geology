@@ -4,8 +4,8 @@ import com.igteam.immersivegeology.core.material.helper.flags.BlockCategoryFlags
 import com.igteam.immersivegeology.core.material.helper.flags.IFlagType;
 import com.igteam.immersivegeology.core.material.helper.material.StoneFormation;
 
+import java.util.Set;
 import java.util.function.BiFunction;
-import java.util.function.Function;
 
 public class MaterialMarsStone extends MaterialAdAstraStone
 {
@@ -14,6 +14,8 @@ public class MaterialMarsStone extends MaterialAdAstraStone
         super();
         this.name = "mars_stone"; // Special Case as we need to override the deafult name assignment method
         this.STONE_FORMATION = StoneFormation.SEDIMENTARY;
+        this.DIMENSIONS = Set.of(MARS);
+        this.additionalOres = Set.of("alumina", "anatase", "cryolite", "zircon");
     }
 
     @Override

@@ -1,0 +1,14 @@
+{
+  "type": "immersiveengineering:arc_furnace",
+  "additives": [],
+  "energy": 204800,
+  "input": {
+    "tag": "forge:grits/kovar"
+  },
+  "results": [
+    {
+      "item": "immersivegeology:ingot_kovar"
+    }
+  ],
+  "time": 400
+}

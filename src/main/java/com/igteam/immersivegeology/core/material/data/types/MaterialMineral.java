@@ -5,6 +5,7 @@ import com.igteam.immersivegeology.common.world.features.helper.noise.IGGenerati
 import com.igteam.immersivegeology.core.material.GeologyMaterial;
 import com.igteam.immersivegeology.core.material.helper.flags.ItemCategoryFlags;
 import com.igteam.immersivegeology.core.material.helper.flags.MaterialFlags;
+import com.igteam.immersivegeology.core.material.helper.material.StoneFormation;
 import com.igteam.immersivegeology.core.material.helper.material.recipe.IGStageDesignation;
 import com.igteam.immersivegeology.core.material.helper.material.recipe.helper.IGMethodBuilder;
 import com.igteam.immersivegeology.core.material.helper.material.recipe.helper.IGRecipeChain;
@@ -14,6 +15,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Blocks;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
@@ -22,6 +24,13 @@ public class MaterialMineral extends GeologyMaterial {
     public MaterialMineral(){
         super();
         addFlags(MaterialFlags.HAS_SLURRY, ItemCategoryFlags.GRIT, ItemCategoryFlags.POWDER);
+        acceptableStoneTypes.add(StoneFormation.END_STONE);
+    }
+
+    @Override
+    public List<String> getAcceptableDimensions()
+    {
+        return List.of("minecraft:overworld", "minecraft:the_end");
     }
 
     public Set<IGRecipeChain> getRecipeChains()

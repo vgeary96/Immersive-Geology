@@ -313,27 +313,15 @@
       "required": false
     },
     {
-      "id": "immersivegeology:minecraft_poor_ore_block_magnetite_stone",
+      "id": "immersivegeology:minecraft_poor_ore_block_magnetite_end_stone",
       "required": false
     },
     {
-      "id": "immersivegeology:minecraft_normal_ore_block_magnetite_stone",
+      "id": "immersivegeology:minecraft_normal_ore_block_magnetite_end_stone",
       "required": false
     },
     {
-      "id": "immersivegeology:minecraft_rich_ore_block_magnetite_stone",
-      "required": false
-    },
-    {
-      "id": "immersivegeology:minecraft_poor_ore_block_magnetite_stone",
-      "required": false
-    },
-    {
-      "id": "immersivegeology:minecraft_normal_ore_block_magnetite_stone",
-      "required": false
-    },
-    {
-      "id": "immersivegeology:minecraft_rich_ore_block_magnetite_stone",
+      "id": "immersivegeology:minecraft_rich_ore_block_magnetite_end_stone",
       "required": false
     },
     {
@@ -358,6 +346,42 @@
     },
     {
       "id": "immersivegeology:minecraft_rich_ore_block_magnetite_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:minecraft_poor_ore_block_magnetite_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:minecraft_normal_ore_block_magnetite_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:minecraft_rich_ore_block_magnetite_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:minecraft_poor_ore_block_magnetite_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:minecraft_normal_ore_block_magnetite_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:minecraft_rich_ore_block_magnetite_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_poor_ore_block_magnetite_mars_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_normal_ore_block_magnetite_mars_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_rich_ore_block_magnetite_mars_stone",
       "required": false
     },
     "immersivegeology:powder_magnetite",

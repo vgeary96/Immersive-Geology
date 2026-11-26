@@ -74,4 +74,10 @@ public class MaterialWolframite extends MaterialMineral {
     {
         return 0.12322998f;
     }
+
+    @Override
+    public List<String> getAcceptableDimensions()
+    {
+        return List.of("ad_astra:moon", "minecraft:the_end");
+    }
 }

@@ -17,6 +17,7 @@ import com.igteam.immersivegeology.core.lib.IGLib;
 import com.igteam.immersivegeology.core.material.configuration.ConfigurationHelper;
 import com.igteam.immersivegeology.core.material.data.enums.MetalEnum;
 import com.igteam.immersivegeology.core.material.data.enums.StoneEnum;
+import com.igteam.immersivegeology.core.material.data.stone.compat.adastra.MaterialAdAstraStone;
 import com.igteam.immersivegeology.core.material.data.types.MaterialStone;
 import com.igteam.immersivegeology.core.material.helper.HazardTypes;
 import com.igteam.immersivegeology.core.material.helper.flags.*;
@@ -267,7 +268,8 @@ public abstract class GeologyMaterial implements MaterialHelper {
 
     public boolean acceptableStoneType(MaterialStone stone)
     {
-        return this.acceptableStoneTypes.contains(stone.getStoneFormation());
+        return this.acceptableStoneTypes.contains(stone.getStoneFormation())
+                || (stone instanceof MaterialAdAstraStone planetStone && planetStone.acceptsAdditionalOre(getName()));
     }
 
     public boolean isValidStoneFormation(StoneFormation formation)

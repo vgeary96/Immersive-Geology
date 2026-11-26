@@ -8,9 +8,14 @@ import com.igteam.immersivegeology.core.material.helper.flags.ModFlags;
 import net.minecraft.resources.ResourceLocation;
 
 import java.util.function.BiFunction;
-import java.util.function.Function;
+import java.util.Set;
 
 public class MaterialAdAstraStone extends MaterialStone {
+
+    public static final ResourceLocation MOON = new ResourceLocation("ad_astra", "moon");
+    public static final ResourceLocation MARS = new ResourceLocation("ad_astra", "mars");
+
+    protected Set<String> additionalOres = Set.of();
 
     public MaterialAdAstraStone() {
         super();
@@ -28,5 +33,15 @@ public class MaterialAdAstraStone extends MaterialStone {
     public ResourceLocation getTextureLocation(IFlagType<?> flag)
     {
         return new ResourceLocation("ad_astra", "block/"+getName());
+    }
+
+    public ResourceLocation getHostBlockId()
+    {
+        return new ResourceLocation("ad_astra", getName());
+    }
+
+    public boolean acceptsAdditionalOre(String ore)
+    {
+        return additionalOres.contains(ore);
     }
 }

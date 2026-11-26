@@ -53,6 +53,6 @@ public class MaterialThorite extends MaterialMineral {
     @Override
     public List<String> getAcceptableDimensions()
     {
-        return List.of("minecraft:the_end");
+        return List.of("minecraft:the_end", "ad_astra:mars");
     }
 }

@@ -50,6 +50,33 @@
     "immersivegeology:minecraft_poor_ore_block_copper_granite",
     "immersivegeology:minecraft_normal_ore_block_copper_granite",
     "immersivegeology:minecraft_rich_ore_block_copper_granite",
+    "immersivegeology:minecraft_poor_ore_block_copper_end_stone",
+    "immersivegeology:minecraft_normal_ore_block_copper_end_stone",
+    "immersivegeology:minecraft_rich_ore_block_copper_end_stone",
+    {
+      "id": "immersivegeology:ad_astra_poor_ore_block_copper_moon_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_normal_ore_block_copper_moon_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_rich_ore_block_copper_moon_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_poor_ore_block_copper_mars_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_normal_ore_block_copper_mars_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_rich_ore_block_copper_mars_stone",
+      "required": false
+    },
     "immersivegeology:sheetmetal_block_gold",
     "immersivegeology:sheetmetal_slab_gold",
     "immersivegeology:sheetmetal_slab_gold",
@@ -73,9 +100,36 @@
     "immersivegeology:minecraft_poor_ore_block_gold_basalt",
     "immersivegeology:minecraft_normal_ore_block_gold_basalt",
     "immersivegeology:minecraft_rich_ore_block_gold_basalt",
+    "immersivegeology:minecraft_poor_ore_block_gold_end_stone",
+    "immersivegeology:minecraft_normal_ore_block_gold_end_stone",
+    "immersivegeology:minecraft_rich_ore_block_gold_end_stone",
     "immersivegeology:minecraft_poor_ore_block_gold_netherrack",
     "immersivegeology:minecraft_normal_ore_block_gold_netherrack",
     "immersivegeology:minecraft_rich_ore_block_gold_netherrack",
+    {
+      "id": "immersivegeology:ad_astra_poor_ore_block_gold_moon_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_normal_ore_block_gold_moon_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_rich_ore_block_gold_moon_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_poor_ore_block_gold_mars_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_normal_ore_block_gold_mars_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_rich_ore_block_gold_mars_stone",
+      "required": false
+    },
     "immersivegeology:slab_gold",
     "immersivegeology:slab_gold",
     "immersivegeology:sheetmetal_stairs_iron",
@@ -268,6 +322,33 @@
     "immersivegeology:minecraft_poor_ore_block_lead_granite",
     "immersivegeology:minecraft_normal_ore_block_lead_granite",
     "immersivegeology:minecraft_rich_ore_block_lead_granite",
+    "immersivegeology:minecraft_poor_ore_block_lead_end_stone",
+    "immersivegeology:minecraft_normal_ore_block_lead_end_stone",
+    "immersivegeology:minecraft_rich_ore_block_lead_end_stone",
+    {
+      "id": "immersivegeology:ad_astra_poor_ore_block_lead_moon_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_normal_ore_block_lead_moon_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_rich_ore_block_lead_moon_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_poor_ore_block_lead_mars_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_normal_ore_block_lead_mars_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_rich_ore_block_lead_mars_stone",
+      "required": false
+    },
     "immersivegeology:storage_block_manganese",
     "immersivegeology:sheetmetal_block_manganese",
     "immersivegeology:sheetmetal_slab_manganese",
@@ -500,6 +581,33 @@
     "immersivegeology:minecraft_poor_ore_block_platinum_granite",
     "immersivegeology:minecraft_normal_ore_block_platinum_granite",
     "immersivegeology:minecraft_rich_ore_block_platinum_granite",
+    "immersivegeology:minecraft_poor_ore_block_platinum_end_stone",
+    "immersivegeology:minecraft_normal_ore_block_platinum_end_stone",
+    "immersivegeology:minecraft_rich_ore_block_platinum_end_stone",
+    {
+      "id": "immersivegeology:ad_astra_poor_ore_block_platinum_moon_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_normal_ore_block_platinum_moon_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_rich_ore_block_platinum_moon_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_poor_ore_block_platinum_mars_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_normal_ore_block_platinum_mars_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_rich_ore_block_platinum_mars_stone",
+      "required": false
+    },
     "immersivegeology:slab_platinum",
     "immersivegeology:slab_platinum",
     "immersivegeology:storage_block_hastelloy",
@@ -520,6 +628,14 @@
     "immersivegeology:slab_high_speed_steel",
     "immersivegeology:slab_high_speed_steel",
     "immersivegeology:stairs_high_speed_steel",
+    "immersivegeology:storage_block_kovar",
+    "immersivegeology:sheetmetal_block_kovar",
+    "immersivegeology:sheetmetal_slab_kovar",
+    "immersivegeology:sheetmetal_slab_kovar",
+    "immersivegeology:sheetmetal_stairs_kovar",
+    "immersivegeology:stairs_kovar",
+    "immersivegeology:slab_kovar",
+    "immersivegeology:slab_kovar",
     "immersivegeology:sheetmetal_slab_silver",
     "immersivegeology:sheetmetal_slab_silver",
     "immersivegeology:sheetmetal_stairs_silver",
@@ -538,6 +654,33 @@
     "immersivegeology:minecraft_poor_ore_block_silver_granite",
     "immersivegeology:minecraft_normal_ore_block_silver_granite",
     "immersivegeology:minecraft_rich_ore_block_silver_granite",
+    "immersivegeology:minecraft_poor_ore_block_silver_end_stone",
+    "immersivegeology:minecraft_normal_ore_block_silver_end_stone",
+    "immersivegeology:minecraft_rich_ore_block_silver_end_stone",
+    {
+      "id": "immersivegeology:ad_astra_poor_ore_block_silver_moon_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_normal_ore_block_silver_moon_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_rich_ore_block_silver_moon_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_poor_ore_block_silver_mars_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_normal_ore_block_silver_mars_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_rich_ore_block_silver_mars_stone",
+      "required": false
+    },
     "immersivegeology:sheetmetal_stairs_steel",
     "immersivegeology:crate_steel",
     "immersivegeology:storage_block_stainless_steel",
@@ -755,9 +898,24 @@
     "immersivegeology:minecraft_poor_ore_block_acanthite_basalt",
     "immersivegeology:minecraft_normal_ore_block_acanthite_basalt",
     "immersivegeology:minecraft_rich_ore_block_acanthite_basalt",
+    "immersivegeology:minecraft_poor_ore_block_acanthite_end_stone",
+    "immersivegeology:minecraft_normal_ore_block_acanthite_end_stone",
+    "immersivegeology:minecraft_rich_ore_block_acanthite_end_stone",
     "immersivegeology:minecraft_poor_ore_block_acanthite_netherrack",
     "immersivegeology:minecraft_normal_ore_block_acanthite_netherrack",
     "immersivegeology:minecraft_rich_ore_block_acanthite_netherrack",
+    {
+      "id": "immersivegeology:ad_astra_poor_ore_block_acanthite_moon_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_normal_ore_block_acanthite_moon_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_rich_ore_block_acanthite_moon_stone",
+      "required": false
+    },
     {
       "id": "immersivegeology:tfc_poor_ore_block_apatite_diorite",
       "required": false
@@ -881,9 +1039,36 @@
     "immersivegeology:minecraft_poor_ore_block_apatite_granite",
     "immersivegeology:minecraft_normal_ore_block_apatite_granite",
     "immersivegeology:minecraft_rich_ore_block_apatite_granite",
+    "immersivegeology:minecraft_poor_ore_block_apatite_end_stone",
+    "immersivegeology:minecraft_normal_ore_block_apatite_end_stone",
+    "immersivegeology:minecraft_rich_ore_block_apatite_end_stone",
+    {
+      "id": "immersivegeology:ad_astra_poor_ore_block_apatite_moon_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_normal_ore_block_apatite_moon_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_rich_ore_block_apatite_moon_stone",
+      "required": false
+    },
     "immersivegeology:minecraft_poor_ore_block_alumina_end_stone",
     "immersivegeology:minecraft_normal_ore_block_alumina_end_stone",
     "immersivegeology:minecraft_rich_ore_block_alumina_end_stone",
+    {
+      "id": "immersivegeology:ad_astra_poor_ore_block_alumina_mars_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_normal_ore_block_alumina_mars_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_rich_ore_block_alumina_mars_stone",
+      "required": false
+    },
     {
       "id": "immersivegeology:tfc_poor_ore_block_anatase_andesite",
       "required": false
@@ -1044,6 +1229,30 @@
     "immersivegeology:minecraft_normal_ore_block_anatase_end_stone",
     "immersivegeology:minecraft_rich_ore_block_anatase_end_stone",
     {
+      "id": "immersivegeology:ad_astra_poor_ore_block_anatase_moon_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_normal_ore_block_anatase_moon_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_rich_ore_block_anatase_moon_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_poor_ore_block_anatase_mars_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_normal_ore_block_anatase_mars_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_rich_ore_block_anatase_mars_stone",
+      "required": false
+    },
+    {
       "id": "immersivegeology:tfc_poor_ore_block_bauxite_chalk",
       "required": false
     },
@@ -1142,6 +1351,21 @@
     "immersivegeology:minecraft_poor_ore_block_bauxite_granite",
     "immersivegeology:minecraft_normal_ore_block_bauxite_granite",
     "immersivegeology:minecraft_rich_ore_block_bauxite_granite",
+    "immersivegeology:minecraft_poor_ore_block_bauxite_end_stone",
+    "immersivegeology:minecraft_normal_ore_block_bauxite_end_stone",
+    "immersivegeology:minecraft_rich_ore_block_bauxite_end_stone",
+    {
+      "id": "immersivegeology:ad_astra_poor_ore_block_bauxite_mars_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_normal_ore_block_bauxite_mars_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_rich_ore_block_bauxite_mars_stone",
+      "required": false
+    },
     "immersivegeology:minecraft_poor_ore_block_bituminous_stone",
     "immersivegeology:minecraft_normal_ore_block_bituminous_stone",
     "immersivegeology:minecraft_rich_ore_block_bituminous_stone",
@@ -1157,6 +1381,21 @@
     "immersivegeology:minecraft_poor_ore_block_bituminous_granite",
     "immersivegeology:minecraft_normal_ore_block_bituminous_granite",
     "immersivegeology:minecraft_rich_ore_block_bituminous_granite",
+    "immersivegeology:minecraft_poor_ore_block_bituminous_end_stone",
+    "immersivegeology:minecraft_normal_ore_block_bituminous_end_stone",
+    "immersivegeology:minecraft_rich_ore_block_bituminous_end_stone",
+    {
+      "id": "immersivegeology:ad_astra_poor_ore_block_bituminous_mars_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_normal_ore_block_bituminous_mars_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_rich_ore_block_bituminous_mars_stone",
+      "required": false
+    },
     "immersivegeology:storage_block_bituminous",
     "immersivegeology:minecraft_poor_ore_block_anthracite_stone",
     "immersivegeology:minecraft_normal_ore_block_anthracite_stone",
@@ -1173,6 +1412,21 @@
     "immersivegeology:minecraft_poor_ore_block_anthracite_granite",
     "immersivegeology:minecraft_normal_ore_block_anthracite_granite",
     "immersivegeology:minecraft_rich_ore_block_anthracite_granite",
+    "immersivegeology:minecraft_poor_ore_block_anthracite_end_stone",
+    "immersivegeology:minecraft_normal_ore_block_anthracite_end_stone",
+    "immersivegeology:minecraft_rich_ore_block_anthracite_end_stone",
+    {
+      "id": "immersivegeology:ad_astra_poor_ore_block_anthracite_mars_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_normal_ore_block_anthracite_mars_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_rich_ore_block_anthracite_mars_stone",
+      "required": false
+    },
     "immersivegeology:storage_block_anthracite",
     "immersivegeology:minecraft_poor_ore_block_cassiterite_stone",
     "immersivegeology:minecraft_normal_ore_block_cassiterite_stone",
@@ -1189,6 +1443,33 @@
     "immersivegeology:minecraft_poor_ore_block_cassiterite_granite",
     "immersivegeology:minecraft_normal_ore_block_cassiterite_granite",
     "immersivegeology:minecraft_rich_ore_block_cassiterite_granite",
+    "immersivegeology:minecraft_poor_ore_block_cassiterite_end_stone",
+    "immersivegeology:minecraft_normal_ore_block_cassiterite_end_stone",
+    "immersivegeology:minecraft_rich_ore_block_cassiterite_end_stone",
+    {
+      "id": "immersivegeology:ad_astra_poor_ore_block_cassiterite_moon_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_normal_ore_block_cassiterite_moon_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_rich_ore_block_cassiterite_moon_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_poor_ore_block_cassiterite_mars_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_normal_ore_block_cassiterite_mars_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_rich_ore_block_cassiterite_mars_stone",
+      "required": false
+    },
     "immersivegeology:evaporate_carnallite",
     "immersivegeology:evaporate_crystal_carnallite",
     "immersivegeology:evaporate_crystal_carnallite",
@@ -1244,6 +1525,9 @@
     "immersivegeology:minecraft_poor_ore_block_chalcocite_basalt",
     "immersivegeology:minecraft_normal_ore_block_chalcocite_basalt",
     "immersivegeology:minecraft_rich_ore_block_chalcocite_basalt",
+    "immersivegeology:minecraft_poor_ore_block_chalcocite_end_stone",
+    "immersivegeology:minecraft_normal_ore_block_chalcocite_end_stone",
+    "immersivegeology:minecraft_rich_ore_block_chalcocite_end_stone",
     "immersivegeology:minecraft_poor_ore_block_chalcocite_netherrack",
     "immersivegeology:minecraft_normal_ore_block_chalcocite_netherrack",
     "immersivegeology:minecraft_rich_ore_block_chalcocite_netherrack",
@@ -1370,9 +1654,36 @@
     "immersivegeology:minecraft_poor_ore_block_chalcopyrite_basalt",
     "immersivegeology:minecraft_normal_ore_block_chalcopyrite_basalt",
     "immersivegeology:minecraft_rich_ore_block_chalcopyrite_basalt",
+    "immersivegeology:minecraft_poor_ore_block_chalcopyrite_end_stone",
+    "immersivegeology:minecraft_normal_ore_block_chalcopyrite_end_stone",
+    "immersivegeology:minecraft_rich_ore_block_chalcopyrite_end_stone",
     "immersivegeology:minecraft_poor_ore_block_chalcopyrite_netherrack",
     "immersivegeology:minecraft_normal_ore_block_chalcopyrite_netherrack",
     "immersivegeology:minecraft_rich_ore_block_chalcopyrite_netherrack",
+    {
+      "id": "immersivegeology:ad_astra_poor_ore_block_chalcopyrite_moon_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_normal_ore_block_chalcopyrite_moon_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_rich_ore_block_chalcopyrite_moon_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_poor_ore_block_chalcopyrite_mars_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_normal_ore_block_chalcopyrite_mars_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_rich_ore_block_chalcopyrite_mars_stone",
+      "required": false
+    },
     {
       "id": "immersivegeology:tfc_poor_ore_block_chromite_diorite",
       "required": false
@@ -1496,6 +1807,21 @@
     "immersivegeology:minecraft_poor_ore_block_chromite_granite",
     "immersivegeology:minecraft_normal_ore_block_chromite_granite",
     "immersivegeology:minecraft_rich_ore_block_chromite_granite",
+    "immersivegeology:minecraft_poor_ore_block_chromite_end_stone",
+    "immersivegeology:minecraft_normal_ore_block_chromite_end_stone",
+    "immersivegeology:minecraft_rich_ore_block_chromite_end_stone",
+    {
+      "id": "immersivegeology:ad_astra_poor_ore_block_chromite_moon_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_normal_ore_block_chromite_moon_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_rich_ore_block_chromite_moon_stone",
+      "required": false
+    },
     {
       "id": "immersivegeology:tfc_poor_ore_block_cobaltite_diorite",
       "required": false
@@ -1607,12 +1933,51 @@
     "immersivegeology:minecraft_poor_ore_block_cobaltite_basalt",
     "immersivegeology:minecraft_normal_ore_block_cobaltite_basalt",
     "immersivegeology:minecraft_rich_ore_block_cobaltite_basalt",
+    "immersivegeology:minecraft_poor_ore_block_cobaltite_end_stone",
+    "immersivegeology:minecraft_normal_ore_block_cobaltite_end_stone",
+    "immersivegeology:minecraft_rich_ore_block_cobaltite_end_stone",
     "immersivegeology:minecraft_poor_ore_block_cobaltite_netherrack",
     "immersivegeology:minecraft_normal_ore_block_cobaltite_netherrack",
     "immersivegeology:minecraft_rich_ore_block_cobaltite_netherrack",
+    {
+      "id": "immersivegeology:ad_astra_poor_ore_block_cobaltite_moon_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_normal_ore_block_cobaltite_moon_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_rich_ore_block_cobaltite_moon_stone",
+      "required": false
+    },
     "immersivegeology:minecraft_poor_ore_block_cryolite_end_stone",
     "immersivegeology:minecraft_normal_ore_block_cryolite_end_stone",
     "immersivegeology:minecraft_rich_ore_block_cryolite_end_stone",
+    {
+      "id": "immersivegeology:ad_astra_poor_ore_block_cryolite_moon_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_normal_ore_block_cryolite_moon_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_rich_ore_block_cryolite_moon_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_poor_ore_block_cryolite_mars_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_normal_ore_block_cryolite_mars_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_rich_ore_block_cryolite_mars_stone",
+      "required": false
+    },
     {
       "id": "immersivegeology:tfc_poor_ore_block_cuprite_andesite",
       "required": false
@@ -1760,6 +2125,21 @@
     "immersivegeology:minecraft_poor_ore_block_cuprite_granite",
     "immersivegeology:minecraft_normal_ore_block_cuprite_granite",
     "immersivegeology:minecraft_rich_ore_block_cuprite_granite",
+    "immersivegeology:minecraft_poor_ore_block_cuprite_end_stone",
+    "immersivegeology:minecraft_normal_ore_block_cuprite_end_stone",
+    "immersivegeology:minecraft_rich_ore_block_cuprite_end_stone",
+    {
+      "id": "immersivegeology:ad_astra_poor_ore_block_cuprite_mars_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_normal_ore_block_cuprite_mars_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_rich_ore_block_cuprite_mars_stone",
+      "required": false
+    },
     {
       "id": "immersivegeology:tfc_poor_ore_block_fluorite_andesite",
       "required": false
@@ -1859,6 +2239,21 @@
     "immersivegeology:minecraft_poor_ore_block_fluorite_granite",
     "immersivegeology:minecraft_normal_ore_block_fluorite_granite",
     "immersivegeology:minecraft_rich_ore_block_fluorite_granite",
+    "immersivegeology:minecraft_poor_ore_block_fluorite_end_stone",
+    "immersivegeology:minecraft_normal_ore_block_fluorite_end_stone",
+    "immersivegeology:minecraft_rich_ore_block_fluorite_end_stone",
+    {
+      "id": "immersivegeology:ad_astra_poor_ore_block_fluorite_moon_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_normal_ore_block_fluorite_moon_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_rich_ore_block_fluorite_moon_stone",
+      "required": false
+    },
     {
       "id": "immersivegeology:tfc_poor_ore_block_galena_gneiss",
       "required": false
@@ -1949,6 +2344,9 @@
     "immersivegeology:minecraft_poor_ore_block_galena_basalt",
     "immersivegeology:minecraft_normal_ore_block_galena_basalt",
     "immersivegeology:minecraft_rich_ore_block_galena_basalt",
+    "immersivegeology:minecraft_poor_ore_block_galena_end_stone",
+    "immersivegeology:minecraft_normal_ore_block_galena_end_stone",
+    "immersivegeology:minecraft_rich_ore_block_galena_end_stone",
     "immersivegeology:minecraft_poor_ore_block_galena_netherrack",
     "immersivegeology:minecraft_normal_ore_block_galena_netherrack",
     "immersivegeology:minecraft_rich_ore_block_galena_netherrack",
@@ -1967,6 +2365,21 @@
     "immersivegeology:minecraft_poor_ore_block_gypsum_granite",
     "immersivegeology:minecraft_normal_ore_block_gypsum_granite",
     "immersivegeology:minecraft_rich_ore_block_gypsum_granite",
+    "immersivegeology:minecraft_poor_ore_block_gypsum_end_stone",
+    "immersivegeology:minecraft_normal_ore_block_gypsum_end_stone",
+    "immersivegeology:minecraft_rich_ore_block_gypsum_end_stone",
+    {
+      "id": "immersivegeology:ad_astra_poor_ore_block_gypsum_mars_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_normal_ore_block_gypsum_mars_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_rich_ore_block_gypsum_mars_stone",
+      "required": false
+    },
     "immersivegeology:minecraft_poor_ore_block_hematite_stone",
     "immersivegeology:minecraft_normal_ore_block_hematite_stone",
     "immersivegeology:minecraft_rich_ore_block_hematite_stone",
@@ -1982,6 +2395,9 @@
     "immersivegeology:minecraft_poor_ore_block_hematite_granite",
     "immersivegeology:minecraft_normal_ore_block_hematite_granite",
     "immersivegeology:minecraft_rich_ore_block_hematite_granite",
+    "immersivegeology:minecraft_poor_ore_block_hematite_end_stone",
+    "immersivegeology:minecraft_normal_ore_block_hematite_end_stone",
+    "immersivegeology:minecraft_rich_ore_block_hematite_end_stone",
     {
       "id": "immersivegeology:tfc_poor_ore_block_ilmenite_andesite",
       "required": false
@@ -2081,6 +2497,21 @@
     "immersivegeology:minecraft_poor_ore_block_ilmenite_granite",
     "immersivegeology:minecraft_normal_ore_block_ilmenite_granite",
     "immersivegeology:minecraft_rich_ore_block_ilmenite_granite",
+    "immersivegeology:minecraft_poor_ore_block_ilmenite_end_stone",
+    "immersivegeology:minecraft_normal_ore_block_ilmenite_end_stone",
+    "immersivegeology:minecraft_rich_ore_block_ilmenite_end_stone",
+    {
+      "id": "immersivegeology:ad_astra_poor_ore_block_ilmenite_moon_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_normal_ore_block_ilmenite_moon_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_rich_ore_block_ilmenite_moon_stone",
+      "required": false
+    },
     "immersivegeology:minecraft_poor_ore_block_lignite_stone",
     "immersivegeology:minecraft_normal_ore_block_lignite_stone",
     "immersivegeology:minecraft_rich_ore_block_lignite_stone",
@@ -2096,6 +2527,21 @@
     "immersivegeology:minecraft_poor_ore_block_lignite_granite",
     "immersivegeology:minecraft_normal_ore_block_lignite_granite",
     "immersivegeology:minecraft_rich_ore_block_lignite_granite",
+    "immersivegeology:minecraft_poor_ore_block_lignite_end_stone",
+    "immersivegeology:minecraft_normal_ore_block_lignite_end_stone",
+    "immersivegeology:minecraft_rich_ore_block_lignite_end_stone",
+    {
+      "id": "immersivegeology:ad_astra_poor_ore_block_lignite_mars_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_normal_ore_block_lignite_mars_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_rich_ore_block_lignite_mars_stone",
+      "required": false
+    },
     "immersivegeology:storage_block_lignite",
     "immersivegeology:minecraft_poor_ore_block_magnetite_stone",
     "immersivegeology:minecraft_normal_ore_block_magnetite_stone",
@@ -2112,6 +2558,21 @@
     "immersivegeology:minecraft_poor_ore_block_magnetite_granite",
     "immersivegeology:minecraft_normal_ore_block_magnetite_granite",
     "immersivegeology:minecraft_rich_ore_block_magnetite_granite",
+    "immersivegeology:minecraft_poor_ore_block_magnetite_end_stone",
+    "immersivegeology:minecraft_normal_ore_block_magnetite_end_stone",
+    "immersivegeology:minecraft_rich_ore_block_magnetite_end_stone",
+    {
+      "id": "immersivegeology:ad_astra_poor_ore_block_magnetite_mars_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_normal_ore_block_magnetite_mars_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_rich_ore_block_magnetite_mars_stone",
+      "required": false
+    },
     {
       "id": "immersivegeology:tfc_poor_ore_block_molybdenite_diorite",
       "required": false
@@ -2307,9 +2768,36 @@
     "immersivegeology:minecraft_poor_ore_block_molybdenite_basalt",
     "immersivegeology:minecraft_normal_ore_block_molybdenite_basalt",
     "immersivegeology:minecraft_rich_ore_block_molybdenite_basalt",
+    "immersivegeology:minecraft_poor_ore_block_molybdenite_end_stone",
+    "immersivegeology:minecraft_normal_ore_block_molybdenite_end_stone",
+    "immersivegeology:minecraft_rich_ore_block_molybdenite_end_stone",
     "immersivegeology:minecraft_poor_ore_block_molybdenite_netherrack",
     "immersivegeology:minecraft_normal_ore_block_molybdenite_netherrack",
     "immersivegeology:minecraft_rich_ore_block_molybdenite_netherrack",
+    {
+      "id": "immersivegeology:ad_astra_poor_ore_block_molybdenite_moon_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_normal_ore_block_molybdenite_moon_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_rich_ore_block_molybdenite_moon_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_poor_ore_block_molybdenite_mars_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_normal_ore_block_molybdenite_mars_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_rich_ore_block_molybdenite_mars_stone",
+      "required": false
+    },
     {
       "id": "immersivegeology:tfc_poor_ore_block_monazite_andesite",
       "required": false
@@ -2457,6 +2945,21 @@
     "immersivegeology:minecraft_poor_ore_block_monazite_granite",
     "immersivegeology:minecraft_normal_ore_block_monazite_granite",
     "immersivegeology:minecraft_rich_ore_block_monazite_granite",
+    "immersivegeology:minecraft_poor_ore_block_monazite_end_stone",
+    "immersivegeology:minecraft_normal_ore_block_monazite_end_stone",
+    "immersivegeology:minecraft_rich_ore_block_monazite_end_stone",
+    {
+      "id": "immersivegeology:ad_astra_poor_ore_block_monazite_mars_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_normal_ore_block_monazite_mars_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_rich_ore_block_monazite_mars_stone",
+      "required": false
+    },
     {
       "id": "immersivegeology:tfc_poor_ore_block_pyrite_gneiss",
       "required": false
@@ -2616,9 +3119,36 @@
     "immersivegeology:minecraft_poor_ore_block_pyrite_basalt",
     "immersivegeology:minecraft_normal_ore_block_pyrite_basalt",
     "immersivegeology:minecraft_rich_ore_block_pyrite_basalt",
+    "immersivegeology:minecraft_poor_ore_block_pyrite_end_stone",
+    "immersivegeology:minecraft_normal_ore_block_pyrite_end_stone",
+    "immersivegeology:minecraft_rich_ore_block_pyrite_end_stone",
     "immersivegeology:minecraft_poor_ore_block_pyrite_netherrack",
     "immersivegeology:minecraft_normal_ore_block_pyrite_netherrack",
     "immersivegeology:minecraft_rich_ore_block_pyrite_netherrack",
+    {
+      "id": "immersivegeology:ad_astra_poor_ore_block_pyrite_moon_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_normal_ore_block_pyrite_moon_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_rich_ore_block_pyrite_moon_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_poor_ore_block_pyrite_mars_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_normal_ore_block_pyrite_mars_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_rich_ore_block_pyrite_mars_stone",
+      "required": false
+    },
     {
       "id": "immersivegeology:tfc_poor_ore_block_pyrolusite_diorite",
       "required": false
@@ -2754,6 +3284,33 @@
     "immersivegeology:minecraft_poor_ore_block_pyrolusite_granite",
     "immersivegeology:minecraft_normal_ore_block_pyrolusite_granite",
     "immersivegeology:minecraft_rich_ore_block_pyrolusite_granite",
+    "immersivegeology:minecraft_poor_ore_block_pyrolusite_end_stone",
+    "immersivegeology:minecraft_normal_ore_block_pyrolusite_end_stone",
+    "immersivegeology:minecraft_rich_ore_block_pyrolusite_end_stone",
+    {
+      "id": "immersivegeology:ad_astra_poor_ore_block_pyrolusite_moon_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_normal_ore_block_pyrolusite_moon_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_rich_ore_block_pyrolusite_moon_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_poor_ore_block_pyrolusite_mars_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_normal_ore_block_pyrolusite_mars_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_rich_ore_block_pyrolusite_mars_stone",
+      "required": false
+    },
     "immersivegeology:evaporate_saltpeter",
     "immersivegeology:evaporate_crystal_saltpeter",
     "immersivegeology:evaporate_crystal_saltpeter",
@@ -2893,6 +3450,33 @@
     "immersivegeology:minecraft_poor_ore_block_scheelite_granite",
     "immersivegeology:minecraft_normal_ore_block_scheelite_granite",
     "immersivegeology:minecraft_rich_ore_block_scheelite_granite",
+    "immersivegeology:minecraft_poor_ore_block_scheelite_end_stone",
+    "immersivegeology:minecraft_normal_ore_block_scheelite_end_stone",
+    "immersivegeology:minecraft_rich_ore_block_scheelite_end_stone",
+    {
+      "id": "immersivegeology:ad_astra_poor_ore_block_scheelite_moon_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_normal_ore_block_scheelite_moon_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_rich_ore_block_scheelite_moon_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_poor_ore_block_scheelite_mars_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_normal_ore_block_scheelite_mars_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_rich_ore_block_scheelite_mars_stone",
+      "required": false
+    },
     {
       "id": "immersivegeology:tfc_poor_ore_block_smithsonite_chalk",
       "required": false
@@ -2992,6 +3576,21 @@
     "immersivegeology:minecraft_poor_ore_block_smithsonite_granite",
     "immersivegeology:minecraft_normal_ore_block_smithsonite_granite",
     "immersivegeology:minecraft_rich_ore_block_smithsonite_granite",
+    "immersivegeology:minecraft_poor_ore_block_smithsonite_end_stone",
+    "immersivegeology:minecraft_normal_ore_block_smithsonite_end_stone",
+    "immersivegeology:minecraft_rich_ore_block_smithsonite_end_stone",
+    {
+      "id": "immersivegeology:ad_astra_poor_ore_block_smithsonite_mars_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_normal_ore_block_smithsonite_mars_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_rich_ore_block_smithsonite_mars_stone",
+      "required": false
+    },
     "immersivegeology:minecraft_poor_ore_block_sphalerite_stone",
     "immersivegeology:minecraft_normal_ore_block_sphalerite_stone",
     "immersivegeology:minecraft_rich_ore_block_sphalerite_stone",
@@ -3010,9 +3609,24 @@
     "immersivegeology:minecraft_poor_ore_block_sphalerite_basalt",
     "immersivegeology:minecraft_normal_ore_block_sphalerite_basalt",
     "immersivegeology:minecraft_rich_ore_block_sphalerite_basalt",
+    "immersivegeology:minecraft_poor_ore_block_sphalerite_end_stone",
+    "immersivegeology:minecraft_normal_ore_block_sphalerite_end_stone",
+    "immersivegeology:minecraft_rich_ore_block_sphalerite_end_stone",
     "immersivegeology:minecraft_poor_ore_block_sphalerite_netherrack",
     "immersivegeology:minecraft_normal_ore_block_sphalerite_netherrack",
     "immersivegeology:minecraft_rich_ore_block_sphalerite_netherrack",
+    {
+      "id": "immersivegeology:ad_astra_poor_ore_block_sphalerite_moon_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_normal_ore_block_sphalerite_moon_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_rich_ore_block_sphalerite_moon_stone",
+      "required": false
+    },
     "immersivegeology:evaporate_rocksalt",
     "immersivegeology:evaporate_crystal_rocksalt",
     "immersivegeology:evaporate_crystal_rocksalt",
@@ -3140,6 +3754,30 @@
     "immersivegeology:minecraft_poor_ore_block_thorianite_end_stone",
     "immersivegeology:minecraft_normal_ore_block_thorianite_end_stone",
     "immersivegeology:minecraft_rich_ore_block_thorianite_end_stone",
+    {
+      "id": "immersivegeology:ad_astra_poor_ore_block_thorianite_moon_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_normal_ore_block_thorianite_moon_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_rich_ore_block_thorianite_moon_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_poor_ore_block_thorianite_mars_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_normal_ore_block_thorianite_mars_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_rich_ore_block_thorianite_mars_stone",
+      "required": false
+    },
     {
       "id": "immersivegeology:tfc_poor_ore_block_thorite_andesite",
       "required": false
@@ -3384,6 +4022,30 @@
     "immersivegeology:minecraft_normal_ore_block_thorite_end_stone",
     "immersivegeology:minecraft_rich_ore_block_thorite_end_stone",
     {
+      "id": "immersivegeology:ad_astra_poor_ore_block_thorite_moon_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_normal_ore_block_thorite_moon_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_rich_ore_block_thorite_moon_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_poor_ore_block_thorite_mars_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_normal_ore_block_thorite_mars_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_rich_ore_block_thorite_mars_stone",
+      "required": false
+    },
+    {
       "id": "immersivegeology:tfc_poor_ore_block_millerite_diorite",
       "required": false
     },
@@ -3437,9 +4099,24 @@
     "immersivegeology:minecraft_poor_ore_block_millerite_basalt",
     "immersivegeology:minecraft_normal_ore_block_millerite_basalt",
     "immersivegeology:minecraft_rich_ore_block_millerite_basalt",
+    "immersivegeology:minecraft_poor_ore_block_millerite_end_stone",
+    "immersivegeology:minecraft_normal_ore_block_millerite_end_stone",
+    "immersivegeology:minecraft_rich_ore_block_millerite_end_stone",
     "immersivegeology:minecraft_poor_ore_block_millerite_netherrack",
     "immersivegeology:minecraft_normal_ore_block_millerite_netherrack",
     "immersivegeology:minecraft_rich_ore_block_millerite_netherrack",
+    {
+      "id": "immersivegeology:ad_astra_poor_ore_block_millerite_moon_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_normal_ore_block_millerite_moon_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_rich_ore_block_millerite_moon_stone",
+      "required": false
+    },
     {
       "id": "immersivegeology:tfc_poor_ore_block_unobtania_diorite",
       "required": false
@@ -3563,6 +4240,21 @@
     "immersivegeology:minecraft_poor_ore_block_unobtania_granite",
     "immersivegeology:minecraft_normal_ore_block_unobtania_granite",
     "immersivegeology:minecraft_rich_ore_block_unobtania_granite",
+    "immersivegeology:minecraft_poor_ore_block_unobtania_end_stone",
+    "immersivegeology:minecraft_normal_ore_block_unobtania_end_stone",
+    "immersivegeology:minecraft_rich_ore_block_unobtania_end_stone",
+    {
+      "id": "immersivegeology:ad_astra_poor_ore_block_unobtania_moon_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_normal_ore_block_unobtania_moon_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_rich_ore_block_unobtania_moon_stone",
+      "required": false
+    },
     {
       "id": "immersivegeology:tfc_poor_ore_block_uraninite_diorite",
       "required": false
@@ -3614,6 +4306,21 @@
     "immersivegeology:minecraft_poor_ore_block_uraninite_granite",
     "immersivegeology:minecraft_normal_ore_block_uraninite_granite",
     "immersivegeology:minecraft_rich_ore_block_uraninite_granite",
+    "immersivegeology:minecraft_poor_ore_block_uraninite_end_stone",
+    "immersivegeology:minecraft_normal_ore_block_uraninite_end_stone",
+    "immersivegeology:minecraft_rich_ore_block_uraninite_end_stone",
+    {
+      "id": "immersivegeology:ad_astra_poor_ore_block_uraninite_moon_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_normal_ore_block_uraninite_moon_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_rich_ore_block_uraninite_moon_stone",
+      "required": false
+    },
     {
       "id": "immersivegeology:tfc_poor_ore_block_vanadinite_diorite",
       "required": false
@@ -3668,9 +4375,24 @@
     "immersivegeology:minecraft_poor_ore_block_vanadinite_basalt",
     "immersivegeology:minecraft_normal_ore_block_vanadinite_basalt",
     "immersivegeology:minecraft_rich_ore_block_vanadinite_basalt",
+    "immersivegeology:minecraft_poor_ore_block_vanadinite_end_stone",
+    "immersivegeology:minecraft_normal_ore_block_vanadinite_end_stone",
+    "immersivegeology:minecraft_rich_ore_block_vanadinite_end_stone",
     "immersivegeology:minecraft_poor_ore_block_vanadinite_netherrack",
     "immersivegeology:minecraft_normal_ore_block_vanadinite_netherrack",
     "immersivegeology:minecraft_rich_ore_block_vanadinite_netherrack",
+    {
+      "id": "immersivegeology:ad_astra_poor_ore_block_vanadinite_moon_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_normal_ore_block_vanadinite_moon_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_rich_ore_block_vanadinite_moon_stone",
+      "required": false
+    },
     {
       "id": "immersivegeology:tfc_poor_ore_block_wolframite_andesite",
       "required": false
@@ -3770,6 +4492,21 @@
     "immersivegeology:minecraft_poor_ore_block_wolframite_granite",
     "immersivegeology:minecraft_normal_ore_block_wolframite_granite",
     "immersivegeology:minecraft_rich_ore_block_wolframite_granite",
+    "immersivegeology:minecraft_poor_ore_block_wolframite_end_stone",
+    "immersivegeology:minecraft_normal_ore_block_wolframite_end_stone",
+    "immersivegeology:minecraft_rich_ore_block_wolframite_end_stone",
+    {
+      "id": "immersivegeology:ad_astra_poor_ore_block_wolframite_moon_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_normal_ore_block_wolframite_moon_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_rich_ore_block_wolframite_moon_stone",
+      "required": false
+    },
     {
       "id": "immersivegeology:tfc_poor_ore_block_zircon_diorite",
       "required": false
@@ -3821,6 +4558,33 @@
     "immersivegeology:minecraft_poor_ore_block_zircon_granite",
     "immersivegeology:minecraft_normal_ore_block_zircon_granite",
     "immersivegeology:minecraft_rich_ore_block_zircon_granite",
+    "immersivegeology:minecraft_poor_ore_block_zircon_end_stone",
+    "immersivegeology:minecraft_normal_ore_block_zircon_end_stone",
+    "immersivegeology:minecraft_rich_ore_block_zircon_end_stone",
+    {
+      "id": "immersivegeology:ad_astra_poor_ore_block_zircon_moon_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_normal_ore_block_zircon_moon_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_rich_ore_block_zircon_moon_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_poor_ore_block_zircon_mars_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_normal_ore_block_zircon_mars_stone",
+      "required": false
+    },
+    {
+      "id": "immersivegeology:ad_astra_rich_ore_block_zircon_mars_stone",
+      "required": false
+    },
     "immersivegeology:storage_block_refractory_brick",
     "immersivegeology:slab_refractory_brick",
     "immersivegeology:slab_refractory_brick",

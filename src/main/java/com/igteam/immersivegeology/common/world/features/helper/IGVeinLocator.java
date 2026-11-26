@@ -25,7 +25,6 @@ import net.minecraft.core.QuartPos;
 import net.minecraft.core.SectionPos;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.tags.BiomeTags;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.state.BlockState;
@@ -238,6 +237,7 @@ public final class IGVeinLocator
 											   int radius, int span, long seed, int from, int to)
 	{
 		List<ChunkDeposit> hits = new ArrayList<>();
+		ResourceLocation dimension = level.dimension().location();
 		for(int index = from; index < to; index++)
 		{
 			ChunkPos chunk = new ChunkPos(origin.x+(index/span)-radius, origin.z+(index%span)-radius);
@@ -247,11 +247,9 @@ public final class IGVeinLocator
 			// Sampling it is the expensive, so it is done once and reused across every material.
 			Holder<Biome> biome = level.getUncachedNoiseBiome(
 					QuartPos.fromBlock(chunk.getMinBlockX()), 0, QuartPos.fromBlock(chunk.getMinBlockZ()));
-			boolean isEnd = biome.containsTag(BiomeTags.IS_END);
-
 			for(MaterialRoll material : materials)
 			{
-				if(rollsVein(material, chunk, seed, biome, isEnd))
+				if(material.placement().rollsVein(chunk, seed, material.config(), biome, dimension))
 				{
 					hits.add(new ChunkDeposit(chunk, material.entry()));
 					break;
@@ -259,14 +257,6 @@ public final class IGVeinLocator
 			}
 		}
 		return hits;
-	}
-
-	private static boolean rollsVein(MaterialRoll material, ChunkPos chunk, long seed, Holder<Biome> biome, boolean isEnd)
-	{
-		IGDefaultPlacement placement = material.placement();
-		OreConfig config = material.config();
-		boolean placed = isEnd?placement.canPlaceVeinEnd(chunk, seed, config): placement.canPlaceVein(chunk, seed, config);
-		return placed&&placement.canSpawnAt(biome);
 	}
 
 	public static boolean canGenerateIn(ServerLevel level, IWorldGenConfig entry)

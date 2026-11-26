@@ -1,0 +1,31 @@
+{
+  "type": "immersiveengineering:arc_furnace",
+  "additives": [
+    {
+      "base_ingredient": {
+        "item": "immersiveengineering:ingot_nickel"
+      },
+      "count": 2
+    },
+    {
+      "item": "immersivegeology:ingot_cobalt"
+    }
+  ],
+  "energy": 409600,
+  "input": {
+    "base_ingredient": {
+      "tag": "forge:ingots/iron"
+    },
+    "count": 4
+  },
+  "results": [
+    {
+      "count": 7,
+      "item": "immersivegeology:ingot_kovar"
+    }
+  ],
+  "slag": {
+    "item": "immersiveengineering:slag"
+  },
+  "time": 800
+}

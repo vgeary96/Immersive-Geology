@@ -3,8 +3,8 @@ package com.igteam.immersivegeology.core.material.data.stone.compat.adastra;
 import com.igteam.immersivegeology.core.material.helper.flags.BlockCategoryFlags;
 import com.igteam.immersivegeology.core.material.helper.flags.IFlagType;
 
+import java.util.Set;
 import java.util.function.BiFunction;
-import java.util.function.Function;
 
 public class MaterialMoonStone extends MaterialAdAstraStone
 {
@@ -12,6 +12,8 @@ public class MaterialMoonStone extends MaterialAdAstraStone
     public MaterialMoonStone() {
         super();
         this.name = "moon_stone"; // Special Case as we need to override the deafult name assignment method
+        this.DIMENSIONS = Set.of(MOON);
+        this.additionalOres = Set.of("pyrite");
     }
 
     @Override

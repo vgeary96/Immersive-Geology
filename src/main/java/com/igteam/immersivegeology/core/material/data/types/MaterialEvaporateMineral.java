@@ -23,6 +23,7 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.state.BlockBehaviour.Properties;
 import net.minecraftforge.common.Tags.Biomes;
 
+import java.util.List;
 import java.util.Optional;
 
 public class MaterialEvaporateMineral extends MaterialMineral
@@ -30,6 +31,7 @@ public class MaterialEvaporateMineral extends MaterialMineral
 	public MaterialEvaporateMineral()
 	{
 		super();
+		acceptableStoneTypes.clear();
 		addFlags(BlockCategoryFlags.EVAPORATE, BlockCategoryFlags.EVAPORATE_CRYSTAL, ItemCategoryFlags.CRYSTAL, ItemCategoryFlags.SEDIMENT, BlockCategoryFlags.STORAGE_BLOCK);
 		removeMaterialFlags(ItemCategoryFlags.SLAG, ItemCategoryFlags.POWDERED_SLAG,
 				ItemCategoryFlags.NORMAL_ORE, ItemCategoryFlags.POOR_ORE,ItemCategoryFlags.RICH_ORE,
@@ -38,6 +40,12 @@ public class MaterialEvaporateMineral extends MaterialMineral
 		int maxSea = 72;
 
 		CONFIG = new MineralConfig(8,50,1, minSea, maxSea,5, 0.5,true, Optional.of(Biomes.IS_DESERT), IGGenerationType.EVAPORATE);
+	}
+
+	@Override
+	public List<String> getAcceptableDimensions()
+	{
+		return List.of("minecraft:overworld");
 	}
 
 	@Override

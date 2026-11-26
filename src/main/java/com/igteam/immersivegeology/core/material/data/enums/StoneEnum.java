@@ -31,6 +31,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.configurations.OreConfiguration.TargetBlockState;
 import net.minecraft.world.level.levelgen.structure.templatesystem.TagMatchTest;
+import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -79,24 +80,28 @@ public enum StoneEnum implements IStoneType {
     MCEndStone(new MaterialMCEndStone()),
     MCNetherrack(new MaterialMCNetherrack()),
     MCDripstone(new MaterialMCDripstone()),
-    MCSandstone(new MaterialMCSandstone());
+    MCSandstone(new MaterialMCSandstone()),
 
     //===== Minecraft Sands =====\\
     //Sand(new MaterialSand()),
 
     //===== Beyond Earth / Ad Astra =====\\
-    //MoonStone(new MaterialMoonStone()),
-    //MarsStone(new MaterialMarsStone()),
+    MoonStone(new MaterialMoonStone()),
+    MarsStone(new MaterialMarsStone());
     //MercuryStone(new MaterialMercuryStone()),
     //VenusStone(new MaterialVenusStone()),
     //GlacioStone(new MaterialGlacioStone());
 
     public static final Codec<StoneEnum> CODEC = Codec.STRING.xmap(StoneEnum::valueOf, Enum::name);
     private static final Map<String, StoneEnum> stoneEnumMap = new HashMap<>();
+    private static final Map<ResourceLocation, StoneEnum> adAstraHosts = new HashMap<>();
 
     static {
         for (StoneEnum stoneEnum : values()) {
-            stoneEnumMap.put(stoneEnum.name().toLowerCase(Locale.ROOT), stoneEnum);
+            if(stoneEnum.instance() instanceof MaterialAdAstraStone stone)
+                adAstraHosts.put(stone.getHostBlockId(), stoneEnum);
+            else
+                stoneEnumMap.put(stoneEnum.name().toLowerCase(Locale.ROOT), stoneEnum);
         }
     }
     private final MaterialStone material;
@@ -125,6 +130,9 @@ public enum StoneEnum implements IStoneType {
     private static StoneEnum resolveWorldState(Block block) {
         try
         {
+            StoneEnum adAstraHost = adAstraHosts.get(ForgeRegistries.BLOCKS.getKey(block));
+            if(adAstraHost!=null) return adAstraHost;
+
             String name = block.getDescriptionId().toLowerCase(Locale.ROOT);
             String stoneName = capitalizeFirstLetter(name.substring(name.lastIndexOf('.')+1));
 
