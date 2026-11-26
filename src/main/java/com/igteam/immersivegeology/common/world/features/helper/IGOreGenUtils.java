@@ -8,6 +8,8 @@
 
 package com.igteam.immersivegeology.common.world.features.helper;
 
+import com.igteam.immersivegeology.core.material.data.stone.IGStoneTypes;
+import com.igteam.immersivegeology.core.material.helper.material.IStoneType;
 import com.igteam.immersivegeology.common.block.ore.IGOreBlock;
 import com.igteam.immersivegeology.common.block.ore.IGWeatheringOreBlock;
 import com.igteam.immersivegeology.common.block.helper.MineralWeathering;
@@ -41,11 +43,11 @@ public class IGOreGenUtils
 	private static final Direction[] DIRECTIONS = Direction.values();
 
 	public static BlockState getStateToGenerate(BlockState stoneState, double noiseValue, MaterialHelper mineral) {
-		StoneEnum stone = null;
+		IStoneType stone = null;
 		if (stoneState.is(Blocks.NETHERRACK)) stone = StoneEnum.MCNetherrack;
 		else if (stoneState.is(Blocks.BASALT)) stone = StoneEnum.MCBasalt;
 		else if (stoneState.is(Blocks.END_STONE)) stone = StoneEnum.MCEndStone;
-		else stone = StoneEnum.selectWorldState(stoneState);
+		else stone = IGStoneTypes.fromWorldState(stoneState);
 
 		if (stone == null || !stone.isStoneTypeValid() || !mineral.acceptableStoneType(stone.instance())) {
 			return null;
@@ -67,8 +69,7 @@ public class IGOreGenUtils
 		if (stoneState.is(Blocks.BASALT)) return mineral.acceptableStoneType(StoneEnum.MCBasalt);
 		if (stoneState.is(Blocks.END_STONE)) return mineral.acceptableStoneType(StoneEnum.MCEndStone);
 
-		// Try to match other stone types
-		StoneEnum stone = StoneEnum.selectWorldState(stoneState);
+		IStoneType stone = IGStoneTypes.fromWorldState(stoneState);
 		return stone != null && stone.isStoneTypeValid() && mineral.acceptableStoneType(stone.instance());
 	}
 	public static BlockState oxidizeExposed(LevelAccessor level, BlockPos cursor, BlockState oreState)
@@ -106,49 +107,34 @@ public class IGOreGenUtils
 	}
 
 
-	static TagKey<Block> stoneTag = Tags.Blocks.STONE;
-	static TagKey<Block> endStoneTag = Tags.Blocks.END_STONES;
-	static TagKey<Block> netherackTag = Tags.Blocks.NETHERRACK;
+	private static final int[] NEIGHBOUR_DX = {0, -1, 0, 1, 0, -1, 1, -1, 1};
+	private static final int[] NEIGHBOUR_DZ = {0, 0, -1, 0, 1, -1, -1, 1, 1};
+
 	public static float getWorthwhileCount(LevelAccessor level, ChunkPos centerChunk, int maxY, int minY, Vein vein) {
-		int totalViableLocations = 0;
-		// Use the same 3x3 chunk area approach
+		return worthwhileFraction(level, centerChunk, maxY, minY, vein, Integer.MAX_VALUE);
+	}
+
+	private static float worthwhileFraction(LevelAccessor level, ChunkPos centerChunk, int maxY, int minY, Vein vein, int stopAt) {
 		try
 		{
-			int sectionMin = level.getSectionIndex(Math.max(minY, level.getMinBuildHeight()));
-			int sectionMax = level.getSectionIndex(Math.min(maxY, level.getMaxBuildHeight()));
+			int lowestY = Math.max(minY, level.getMinBuildHeight());
+			int highestY = Math.min(maxY, level.getMaxBuildHeight()-1);
+			if(lowestY > highestY)
+			{
+				return 0;
+			}
+
+			int sectionMin = level.getSectionIndex(lowestY);
+			int sectionMax = level.getSectionIndex(highestY);
 			if(sectionMin < 0)
 			{
 				throw(new IllegalArgumentException("Section Min is Negative, this should be impossible. \n" +
-						"Please report to Immerisve Geology Github or Discord. \n" +
+						"Please report to Immerisve Geology Github. \n" +
 						"Include the Dimension and Biome you're in when triggering this message"));
 			}
-			for(int chunkDX = -1; chunkDX <= 1; chunkDX++)
-			{
-				for(int chunkDZ = -1; chunkDZ <= 1; chunkDZ++)
-				{
-					ChunkPos currentChunkPos = new ChunkPos(centerChunk.x+chunkDX, centerChunk.z+chunkDZ);
-					ChunkAccess currentChunk = level.getChunk(currentChunkPos.x, currentChunkPos.z);
-					for(int sectionIndex = sectionMin; sectionIndex < sectionMax; sectionIndex++)
-					{
-						LevelChunkSection section = currentChunk.getSection(sectionIndex);
-						// Skip if section is empty or doesn't have potential viable blocks
-						if(section.hasOnlyAir()||!section.maybeHas(b -> b.is(stoneTag)||b.is(netherackTag)||b.is(endStoneTag)))
-						{
-							continue;
-						}
-						// Calculate Y bounds for this section
-						int sectionMinY = SectionPos.sectionToBlockCoord(sectionIndex);
-						int sectionMaxY = sectionMinY + 15;
 
-						// Process this section to count viable locations
-						totalViableLocations += countViableLocationsInSection(currentChunk, sectionMinY, sectionMaxY, vein, centerChunk);
-					}
-				}
-			}
-			// Calculate the total volume of blocks in the 3x3 chunk area within the Y range
-			int areaMinY = SectionPos.sectionToBlockCoord(sectionMin);
-			int areaMaxY = SectionPos.sectionToBlockCoord(sectionMax);
-			int totalBlocks = 48*48*(Math.abs(areaMinY-areaMaxY));
+			int totalViableLocations = countViableLocations(level, centerChunk, sectionMin, sectionMax, lowestY, highestY, vein, stopAt);
+			int totalBlocks = 48*48*(highestY-lowestY+1);
 			return (float)totalViableLocations/totalBlocks;
 		} catch(Exception ex)
 		{
@@ -159,75 +145,130 @@ public class IGOreGenUtils
 		}
 		return 0;
 	}
-	static BlockPos.MutableBlockPos mutablePos = new BlockPos.MutableBlockPos();
-	private static int countViableLocationsInSection(ChunkAccess chunk,int minY, int maxY, Vein vein, ChunkPos centreChunk) {
-		int viablePositions = 0;
-		ChunkPos chunkPos = chunk.getPos();
-		for (int y = minY; y < maxY; y++) {
-			for (int x = 0; x < 16; x++) {
-				for (int z = 0; z < 16; z++) {
-					double noiseValue = IGOreGenUtils.noise(chunkPos, x,y,z, vein, centreChunk);
-					if (noiseValue > IGOreFeature.THRESHOLD) {
-						mutablePos.set(x,y,z);
-						BlockState state = chunk.getBlockState(mutablePos);
-						boolean viable = state.is(stoneTag) || state.is(endStoneTag) || state.is(netherackTag) || state.getBlock() instanceof IGOreBlock;
-						if (viable) {
-							viablePositions++;
+
+	private static int countViableLocations(LevelAccessor level, ChunkPos centerChunk, int sectionMin, int sectionMax,
+											int lowestY, int highestY, Vein vein, int stopAt)
+	{
+		MaterialHelper veinMaterial = vein.material().instance();
+		INoise3D noiseGen = vein.noise();
+		int centerX = centerChunk.getMiddleBlockX();
+		int centerZ = centerChunk.getMiddleBlockZ();
+
+		double[] columnMultiplier = new double[256];
+		int totalViableLocations = 0;
+
+		for(int neighbour = 0; neighbour < NEIGHBOUR_DX.length; neighbour++)
+		{
+			ChunkPos currentChunkPos = new ChunkPos(centerChunk.x+NEIGHBOUR_DX[neighbour], centerChunk.z+NEIGHBOUR_DZ[neighbour]);
+			int baseX = currentChunkPos.getMinBlockX();
+			int baseZ = currentChunkPos.getMinBlockZ();
+			for(int x = 0; x < 16; x++)
+			{
+				for(int z = 0; z < 16; z++)
+				{
+					double horizontalDistance = distanceFrom(baseX+x, baseZ+z, centerX, centerZ);
+					columnMultiplier[(x<<4)|z] = getBoundaryMultiplication(horizontalDistance, 16.0, 24.0);
+				}
+			}
+
+			ChunkAccess currentChunk = level.getChunk(currentChunkPos.x, currentChunkPos.z);
+			for(int sectionIndex = sectionMin; sectionIndex <= sectionMax; sectionIndex++)
+			{
+				LevelChunkSection section = currentChunk.getSection(sectionIndex);
+
+				if(section.hasOnlyAir()||!section.maybeHas(b -> canStateGenerate(b, veinMaterial)))
+				{
+					continue;
+				}
+
+				int sectionMinY = SectionPos.sectionToBlockCoord(level.getSectionYFromSectionIndex(sectionIndex));
+				int fromY = Math.max(sectionMinY, lowestY);
+				int toY = Math.min(sectionMinY+16, highestY+1);
+
+				for(int y = fromY; y < toY; y++)
+				{
+					for(int x = 0; x < 16; x++)
+					{
+						for(int z = 0; z < 16; z++)
+						{
+							double multiplier = columnMultiplier[(x<<4)|z];
+							if(multiplier <= 0)
+							{
+								continue;
+							}
+							double noiseValue = noiseGen.noise(baseX+x, y, baseZ+z)*multiplier;
+							if(noiseValue <= IGOreFeature.THRESHOLD)
+							{
+								continue;
+							}
+
+							BlockState state = section.getBlockState(x, y&15, z);
+							if(canStateGenerate(state, veinMaterial)||state.getBlock() instanceof IGOreBlock)
+							{
+								if(++totalViableLocations >= stopAt)
+								{
+									return totalViableLocations;
+								}
+							}
 						}
 					}
 				}
 			}
 		}
-		return viablePositions;
+		return totalViableLocations;
 	}
 
 	public static double noise(ChunkPos pos, int x, int y, int z, @NotNull Vein vein, ChunkPos centerChunkPos) {
+		return noise(pos.getMinBlockX()+x, y, pos.getMinBlockZ()+z, vein, centerChunkPos);
+	}
+
+	public static double noise(int worldX, int worldY, int worldZ, @NotNull Vein vein, ChunkPos centerChunkPos) {
 		INoise3D noiseGen = vein.noise();
-		BlockPos middleBlockPosition = centerChunkPos.getMiddleBlockPosition(0);
-		BlockPos currentBlockPosition = pos.getBlockAt(x,y,z);
 
-		// Calculate horizontal distance (creates cylindrical shape)
-		double dx = currentBlockPosition.getX() - middleBlockPosition.getX();
-		double dz = currentBlockPosition.getZ() - middleBlockPosition.getZ();
-		double horizontalDistance = Math.hypot(dx, dz);
+		double horizontalDistance = distanceFrom(worldX, worldZ, centerChunkPos.getMiddleBlockX(), centerChunkPos.getMiddleBlockZ());
 
-		// Define cylinder radius and thresholds
-		double radius = 24.0; // Total radius
-		double outerThreshold = 16.0; // 8 blocks from edge (24-8=16)
+		double radius = 24.0;
+		double outerThreshold = 16.0;
 		double boundaryMultiplication = getBoundaryMultiplication(horizontalDistance, outerThreshold, radius);
 
-		return noiseGen.noise(currentBlockPosition) * boundaryMultiplication;
+		return noiseGen.noise(worldX, worldY, worldZ) * boundaryMultiplication;
+	}
+
+	private static double distanceFrom(int worldX, int worldZ, int centerX, int centerZ)
+	{
+		double dx = worldX-centerX;
+		double dz = worldZ-centerZ;
+		return Math.sqrt(dx*dx+dz*dz);
 	}
 
 	private static double getBoundaryMultiplication(double horizontalDistance, double outerThreshold, double radius)
 	{
 		double middleThreshold = 20.0; // 4 blocks from edge (24-4=20)
 
-		// Calculate boundary multiplication with steeper falloff
-		double boundaryMultiplication = 1.0; // Default is full strength
+		double boundaryMultiplication = 1.0;
 
 		if (horizontalDistance > outerThreshold) {
 			if (horizontalDistance > middleThreshold) {
-				// Between middleThreshold and radius (4 blocks from edge to edge)
-				// Goes from 50% to 0%
 				double t = (horizontalDistance- middleThreshold) / (radius- middleThreshold);
 				boundaryMultiplication = 0.5 * (1.0 - t);
 			} else {
-				// Between outerThreshold and middleThreshold (8 blocks from edge to 4 blocks from edge)
-				// Goes from 75% to 50%
 				double t = (horizontalDistance-outerThreshold) / (middleThreshold -outerThreshold);
 				boundaryMultiplication = 0.75 - 0.25 * t;
 			}
 		}
 
-		// Make sure multiplier is at least 0
 		boundaryMultiplication = Math.max(0.0, boundaryMultiplication);
 		return boundaryMultiplication;
 	}
 
 	public static boolean isVeinWorthwhile(LevelAccessor level, ChunkPos chunk, int maxY, int minY, Vein vein)
 	{
-		float totalViableLocations = getWorthwhileCount(level, chunk, maxY, minY, vein);
+		int lowestY = Math.max(minY, level.getMinBuildHeight());
+		int highestY = Math.min(maxY, level.getMaxBuildHeight()-1);
+		int totalBlocks = 48*48*(highestY-lowestY+1);
+		int stopAt = lowestY > highestY?Integer.MAX_VALUE: (int)Math.ceil(totalBlocks/100.0)+1;
+
+		float totalViableLocations = worthwhileFraction(level, chunk, maxY, minY, vein, stopAt);
 		return Math.floor(totalViableLocations * 100) > 0f;
 	}
 

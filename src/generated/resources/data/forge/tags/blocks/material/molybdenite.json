@@ -192,42 +192,15 @@
       "id": "immersivegeology:tfc_rich_ore_block_molybdenite_shale",
       "required": false
     },
-    {
-      "id": "immersivegeology:minecraft_poor_ore_block_molybdenite_basalt",
-      "required": false
-    },
-    {
-      "id": "immersivegeology:minecraft_normal_ore_block_molybdenite_basalt",
-      "required": false
-    },
-    {
-      "id": "immersivegeology:minecraft_rich_ore_block_molybdenite_basalt",
-      "required": false
-    },
-    {
-      "id": "immersivegeology:minecraft_poor_ore_block_molybdenite_end_stone",
-      "required": false
-    },
-    {
-      "id": "immersivegeology:minecraft_normal_ore_block_molybdenite_end_stone",
-      "required": false
-    },
-    {
-      "id": "immersivegeology:minecraft_rich_ore_block_molybdenite_end_stone",
-      "required": false
-    },
-    {
-      "id": "immersivegeology:minecraft_poor_ore_block_molybdenite_netherrack",
-      "required": false
-    },
-    {
-      "id": "immersivegeology:minecraft_normal_ore_block_molybdenite_netherrack",
-      "required": false
-    },
-    {
-      "id": "immersivegeology:minecraft_rich_ore_block_molybdenite_netherrack",
-      "required": false
-    },
+    "immersivegeology:minecraft_poor_ore_block_molybdenite_basalt",
+    "immersivegeology:minecraft_normal_ore_block_molybdenite_basalt",
+    "immersivegeology:minecraft_rich_ore_block_molybdenite_basalt",
+    "immersivegeology:minecraft_poor_ore_block_molybdenite_end_stone",
+    "immersivegeology:minecraft_normal_ore_block_molybdenite_end_stone",
+    "immersivegeology:minecraft_rich_ore_block_molybdenite_end_stone",
+    "immersivegeology:minecraft_poor_ore_block_molybdenite_netherrack",
+    "immersivegeology:minecraft_normal_ore_block_molybdenite_netherrack",
+    "immersivegeology:minecraft_rich_ore_block_molybdenite_netherrack",
     {
       "id": "immersivegeology:ad_astra_poor_ore_block_molybdenite_moon_stone",
       "required": false

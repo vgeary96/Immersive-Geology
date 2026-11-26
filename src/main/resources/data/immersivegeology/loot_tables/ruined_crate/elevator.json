@@ -10,98 +10,51 @@
           "functions": [
             {
               "function": "minecraft:set_count",
-              "count": {
-                "type": "minecraft:uniform",
-                "min": 8,
-                "max": 16
-              }
+              "count": { "type": "minecraft:uniform", "min": 8, "max": 16 }
             }
           ],
           "conditions": [
-            {
-              "condition": "minecraft:random_chance",
-              "chance": 0.33
-            }
+            { "condition": "minecraft:random_chance", "chance": 0.33 }
           ]
         },
         {
           "type": "minecraft:item",
           "name": "immersivegeology:normal_ore_fluorite",
           "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "type": "minecraft:uniform",
-                "min": 8,
-                "max": 16
-              }
-            }
+            { "function": "minecraft:set_count", "count": { "type": "minecraft:uniform", "min": 8, "max": 16 } }
           ],
           "conditions": [
-            {
-              "condition": "minecraft:random_chance",
-              "chance": 0.33
-            }
+            { "condition": "minecraft:random_chance", "chance": 0.33 }
           ]
         },
         {
           "type": "minecraft:item",
           "name": "immersivegeology:normal_ore_ilmenite",
           "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "type": "minecraft:uniform",
-                "min": 8,
-                "max": 16
-              }
-            }
+            { "function": "minecraft:set_count", "count": { "type": "minecraft:uniform", "min": 8, "max": 16 } }
           ],
           "conditions": [
-            {
-              "condition": "minecraft:random_chance",
-              "chance": 0.33
-            }
+            { "condition": "minecraft:random_chance", "chance": 0.33 }
           ]
         },
         {
           "type": "minecraft:item",
           "name": "immersivegeology:normal_ore_zircon",
           "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "type": "minecraft:uniform",
-                "min": 8,
-                "max": 16
-              }
-            }
+            { "function": "minecraft:set_count", "count": { "type": "minecraft:uniform", "min": 8, "max": 16 } }
           ],
           "conditions": [
-            {
-              "condition": "minecraft:random_chance",
-              "chance": 0.33
-            }
+            { "condition": "minecraft:random_chance", "chance": 0.33 }
           ]
         },
         {
           "type": "minecraft:item",
           "name": "immersivegeology:normal_ore_millerite",
           "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "type": "minecraft:uniform",
-                "min": 8,
-                "max": 16
-              }
-            }
+            { "function": "minecraft:set_count", "count": { "type": "minecraft:uniform", "min": 8, "max": 16 } }
           ],
           "conditions": [
-            {
-              "condition": "minecraft:random_chance",
-              "chance": 0.33
-            }
+            { "condition": "minecraft:random_chance", "chance": 0.33 }
           ]
         }
       ]
@@ -113,100 +66,50 @@
           "type": "minecraft:item",
           "name": "immersivegeology:poor_ore_cuprite",
           "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "type": "minecraft:uniform",
-                "min": 16,
-                "max": 48
-              }
-            }
+            { "function": "minecraft:set_count", "count": { "type": "minecraft:uniform", "min": 16, "max": 48 } }
           ],
           "conditions": [
-            {
-              "condition": "minecraft:random_chance",
-              "chance": 0.33
-            }
+            { "condition": "minecraft:random_chance", "chance": 0.33 }
           ]
         },
         {
           "type": "minecraft:item",
           "name": "immersivegeology:poor_ore_fluorite",
           "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "type": "minecraft:uniform",
-                "min": 16,
-                "max": 48
-              }
-            }
+            { "function": "minecraft:set_count", "count": { "type": "minecraft:uniform", "min": 16, "max": 48 } }
           ],
           "conditions": [
-            {
-              "condition": "minecraft:random_chance",
-              "chance": 0.33
-            }
+            { "condition": "minecraft:random_chance", "chance": 0.33 }
           ]
         },
         {
           "type": "minecraft:item",
           "name": "immersivegeology:poor_ore_ilmenite",
           "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "type": "minecraft:uniform",
-                "min": 16,
-                "max": 48
-              }
-            }
+            { "function": "minecraft:set_count", "count": { "type": "minecraft:uniform", "min": 16, "max": 48 } }
           ],
           "conditions": [
-            {
-              "condition": "minecraft:random_chance",
-              "chance": 0.33
-            }
+            { "condition": "minecraft:random_chance", "chance": 0.33 }
           ]
         },
         {
           "type": "minecraft:item",
           "name": "immersivegeology:poor_ore_zircon",
           "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "type": "minecraft:uniform",
-                "min": 16,
-                "max": 48
-              }
-            }
+            { "function": "minecraft:set_count", "count": { "type": "minecraft:uniform", "min": 16, "max": 48 } }
           ],
           "conditions": [
-            {
-              "condition": "minecraft:random_chance",
-              "chance": 0.33
-            }
+            { "condition": "minecraft:random_chance", "chance": 0.33 }
           ]
         },
         {
           "type": "minecraft:item",
           "name": "immersivegeology:poor_ore_millerite",
           "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "type": "minecraft:uniform",
-                "min": 16,
-                "max": 48
-              }
-            }
+            { "function": "minecraft:set_count", "count": { "type": "minecraft:uniform", "min": 16, "max": 48 } }
           ],
           "conditions": [
-            {
-              "condition": "minecraft:random_chance",
-              "chance": 0.33
-            }
+            { "condition": "minecraft:random_chance", "chance": 0.33 }
           ]
         }
       ]
@@ -218,100 +121,50 @@
           "type": "minecraft:item",
           "name": "immersivegeology:rich_ore_cuprite",
           "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "type": "minecraft:uniform",
-                "min": 8,
-                "max": 18
-              }
-            }
+            { "function": "minecraft:set_count", "count": { "type": "minecraft:uniform", "min": 8, "max": 18 } }
           ],
           "conditions": [
-            {
-              "condition": "minecraft:random_chance",
-              "chance": 0.10
-            }
+            { "condition": "minecraft:random_chance", "chance": 0.10 }
           ]
         },
         {
           "type": "minecraft:item",
           "name": "immersivegeology:rich_ore_fluorite",
           "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "type": "minecraft:uniform",
-                "min": 8,
-                "max": 18
-              }
-            }
+            { "function": "minecraft:set_count", "count": { "type": "minecraft:uniform", "min": 8, "max": 18 } }
           ],
           "conditions": [
-            {
-              "condition": "minecraft:random_chance",
-              "chance": 0.10
-            }
+            { "condition": "minecraft:random_chance", "chance": 0.10 }
           ]
         },
         {
           "type": "minecraft:item",
           "name": "immersivegeology:rich_ore_ilmenite",
           "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "type": "minecraft:uniform",
-                "min": 8,
-                "max": 18
-              }
-            }
+            { "function": "minecraft:set_count", "count": { "type": "minecraft:uniform", "min": 8, "max": 18 } }
           ],
           "conditions": [
-            {
-              "condition": "minecraft:random_chance",
-              "chance": 0.10
-            }
+            { "condition": "minecraft:random_chance", "chance": 0.10 }
           ]
         },
         {
           "type": "minecraft:item",
           "name": "immersivegeology:rich_ore_zircon",
           "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "type": "minecraft:uniform",
-                "min": 8,
-                "max": 18
-              }
-            }
+            { "function": "minecraft:set_count", "count": { "type": "minecraft:uniform", "min": 8, "max": 18 } }
           ],
           "conditions": [
-            {
-              "condition": "minecraft:random_chance",
-              "chance": 0.10
-            }
+            { "condition": "minecraft:random_chance", "chance": 0.10 }
           ]
         },
         {
           "type": "minecraft:item",
           "name": "immersivegeology:rich_ore_millerite",
           "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "type": "minecraft:uniform",
-                "min": 8,
-                "max": 18
-              }
-            }
+            { "function": "minecraft:set_count", "count": { "type": "minecraft:uniform", "min": 8, "max": 18 } }
           ],
           "conditions": [
-            {
-              "condition": "minecraft:random_chance",
-              "chance": 0.10
-            }
+            { "condition": "minecraft:random_chance", "chance": 0.10 }
           ]
         }
       ]
@@ -322,37 +175,18 @@
         {
           "type": "minecraft:item",
           "name": "immersivegeology:drill_head_tungsten_carbide",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": 1
-            }
-          ],
-          "conditions": [
-            {
-              "condition": "minecraft:random_chance",
-              "chance": 0.05
-            }
-          ]
+          "functions": [ { "function": "minecraft:set_count", "count": 1 } ],
+          "conditions": [ { "condition": "minecraft:random_chance", "chance": 0.05 } ]
         },
         {
           "type": "minecraft:item",
           "name": "immersivegeology:crystal_unobtanium",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": 1
-            }
-          ],
-          "conditions": [
-            {
-              "condition": "minecraft:random_chance",
-              "chance": 0.01
-            }
-          ]
+          "functions": [ { "function": "minecraft:set_count", "count": 1 } ],
+          "conditions": [ { "condition": "minecraft:random_chance", "chance": 0.01 } ]
         }
       ]
     }
+
   ],
   "random_sequence": "immersivegeology:ruined_crate/elevator"
 }

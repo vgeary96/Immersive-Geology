@@ -11,17 +11,24 @@ package com.igteam.immersivegeology.client.helper;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Direction.Plane;
 import net.minecraft.util.RandomSource;
+import java.util.Locale;
 
 public enum IGVeinTextureType
 {
 	METALLIC,
 	CRYSTAL,
 	LAYERED,
-	MINERAL;
+	MINERAL,
+	NATIVE_METAL;
+
+	public boolean hasStoneBackdrop()
+	{
+		return this==NATIVE_METAL;
+	}
 
 	public String getSanitizedName()
 	{
-		return this.name().toLowerCase();
+		return this.name().toLowerCase(Locale.ROOT);
 	}
 
 	public Direction getDirectionalBias(RandomSource random)

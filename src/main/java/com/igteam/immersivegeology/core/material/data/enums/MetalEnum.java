@@ -8,6 +8,7 @@
 
 package com.igteam.immersivegeology.core.material.data.enums;
 
+import com.igteam.immersivegeology.core.material.helper.material.IStoneType;
 import com.igteam.immersivegeology.common.block.helper.IOreBlock;
 import com.igteam.immersivegeology.common.block.helper.MineralWeathering;
 import com.igteam.immersivegeology.common.block.helper.OreRichness;
@@ -89,7 +90,7 @@ public enum MetalEnum implements MaterialInterface<MaterialMetal>, IWorldGenConf
         for(MetalEnum metal : values()) {
             for(MineralWeathering weathering : MineralWeathering.values())
             {
-                permutations.add(metal.getName()+"/"+weathering.name().toLowerCase());
+                permutations.add(metal.getName()+"/"+weathering.name().toLowerCase(Locale.ROOT));
             }
         }
 
@@ -101,7 +102,7 @@ public enum MetalEnum implements MaterialInterface<MaterialMetal>, IWorldGenConf
         List<String> permutations = new ArrayList<>();
         scaffoldingMetals().forEach((e) ->
         {
-            permutations.add(e.getName() +"/"+ MineralWeathering.PRISTINE.name().toLowerCase());
+            permutations.add(e.getName() +"/"+ MineralWeathering.PRISTINE.name().toLowerCase(Locale.ROOT));
         });
 
         return permutations;
@@ -179,7 +180,7 @@ public enum MetalEnum implements MaterialInterface<MaterialMetal>, IWorldGenConf
     }
 
     @Override
-    public IOreBlock getOreBlock(StoneEnum stone, OreRichness richness)
+    public IOreBlock getOreBlock(IStoneType stone, OreRichness richness)
     {
         return material.getOreBlock(stone, richness);
     }

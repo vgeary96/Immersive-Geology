@@ -16,6 +16,7 @@ import com.igteam.immersivegeology.common.block.multiblocks.recipe.builder.Turbi
 import com.igteam.immersivegeology.common.block.multiblocks.recipe.serializer.*;
 import com.igteam.immersivegeology.common.recipe.IGGeoRecipe;
 import com.igteam.immersivegeology.common.recipe.IGGeoSerializer;
+import com.igteam.immersivegeology.common.recipe.IGMoldShapingSerializer;
 import com.igteam.immersivegeology.common.recipe.IGRepairItemRecipe;
 import com.igteam.immersivegeology.core.lib.IGLib;
 import com.igteam.immersivegeology.core.registration.helper.EmptyRecipe;
@@ -36,6 +37,7 @@ public class IGRecipeSerializers
 
 	public static final RegistryObject<IERecipeSerializer<EmptyRecipe>> EMPTY_SERIALIZER;
 	public static final RegistryObject<SimpleRecipeSerializer<IGRepairItemRecipe>> IG_REPAIR_SERIALIZER;
+	public static final RegistryObject<IGMoldShapingSerializer> MOLD_SHAPING_SERIALIZER;
 
 
 	static {
@@ -43,6 +45,8 @@ public class IGRecipeSerializers
 		GravitySeparatorRecipe.SERIALIZER = RECIPE_SERIALIZERS.register("gravity_separator", GravitySeparatorRecipeSerializer::new);
 		RevFurnaceRecipe.SERIALIZER = RECIPE_SERIALIZERS.register("reverberation_furnace", RevFurnaceRecipeSerializer::new);
 		RotaryKilnRecipe.SERIALIZER = RECIPE_SERIALIZERS.register("rotary_kiln", RotaryKilnRecipeSerializer::new);
+		BulkBlastFurnaceRecipe.SERIALIZER = RECIPE_SERIALIZERS.register("bulk_blast_furnace", BulkBlastFurnaceRecipeSerializer::new);
+		BulkBlastFluxRecipe.SERIALIZER = RECIPE_SERIALIZERS.register("bulk_blast_flux", BulkBlastFluxSerializer::new);
 		ChemicalRecipe.SERIALIZER = RECIPE_SERIALIZERS.register("chemical_reactor", ChemicalRecipeSerializer::new);
 		BasicChemicalRecipe.SERIALIZER = RECIPE_SERIALIZERS.register("small_chemical_reactor", BasicChemicalRecipeSerializer::new);
 		CentrifugeRecipe.SERIALIZER = RECIPE_SERIALIZERS.register("centrifuge", CentrifugeRecipeSerializer::new);
@@ -55,12 +59,14 @@ public class IGRecipeSerializers
 		PelletizerRecipe.SERIALIZER = RECIPE_SERIALIZERS.register("pelletizer", PelletizerRecipeSerializer::new);
 		CoreDrillRecipe.SERIALIZER = RECIPE_SERIALIZERS.register("coredrill", CoreDrillSerializer::new);
 		FoundryRecipe.SERIALIZER = RECIPE_SERIALIZERS.register("foundry", FoundryRecipeSerializer::new);
+		FoundryAlloyRecipe.SERIALIZER = RECIPE_SERIALIZERS.register("foundry_alloying", FoundryAlloyRecipeSerializer::new);
 		GeothermalExchangerRecipe.SERIALIZER = RECIPE_SERIALIZERS.register("geothermal_exchanger", GeothermalExchangerRecipeSerializer::new);
 		GeothermalConversionRecipe.SERIALIZER = RECIPE_SERIALIZERS.register("geothermal_conversion", GeothermalConversionRecipeSerializer::new);
 		GeothermalBiomeRecipe.SERIALIZER = RECIPE_SERIALIZERS.register("geothermal_biome", GeothermalBiomeRecipeSerializer::new);
 		IGGeoRecipe.SERIALIZER = RECIPE_SERIALIZERS.register("geo_hint", IGGeoSerializer::new);
 
 		IG_REPAIR_SERIALIZER = RECIPE_SERIALIZERS.register("ig_item_repair", special(IGRepairItemRecipe::new));
+		MOLD_SHAPING_SERIALIZER = RECIPE_SERIALIZERS.register("mold_shaping", IGMoldShapingSerializer::new);
 
 		EMPTY_SERIALIZER = RECIPE_SERIALIZERS.register("empty", EmptySerializer::new);
 	}

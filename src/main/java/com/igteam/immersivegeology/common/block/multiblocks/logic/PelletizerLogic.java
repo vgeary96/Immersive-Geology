@@ -27,6 +27,7 @@ import blusunrize.immersiveengineering.common.util.DroppingMultiblockOutput;
 import blusunrize.immersiveengineering.common.util.Utils;
 import blusunrize.immersiveengineering.common.util.inventory.SlotwiseItemHandler;
 import blusunrize.immersiveengineering.common.util.inventory.SlotwiseItemHandler.IOConstraint;
+import com.igteam.immersivegeology.common.block.helper.IGReceiveOnlyEnergy;
 import com.igteam.immersivegeology.common.block.multiblocks.logic.PelletizerLogic.State;
 import com.igteam.immersivegeology.common.block.multiblocks.logic.helper.IGMultiblockState;
 import com.igteam.immersivegeology.common.block.multiblocks.logic.helper.ISkinnableMultiblockLogic;
@@ -145,11 +146,26 @@ public class PelletizerLogic implements ISkinnableMultiblockLogic<State>, IServe
             {
                 PelletizerRecipe recipe = PelletizerRecipe.findRecipe(level, inputStack);
                 if(recipe == null) return;
-                MultiblockProcessInWorld<PelletizerRecipe> process = new MultiblockProcessInWorld<>(recipe, inputStack);
+                int batch = recipe.itemIn.getCount();
+                // The process has to own its input outright, and own exactly one recipe's worth of it.
+                //
+                // MultiblockProcessInWorld keeps whatever stack it is handed - createNonNullItemStackListFromItemStack
+                // sets the reference into the list rather than copying it - so passing the live slot made every
+                // queued process and the inventory the same ItemStack. Saving then wrote that one stack out once
+                // per queued process, and loading read each of those back as a separate stack, which is where the
+                // duplicated pellets came from: the deeper the queue, the bigger the multiplier.
+                //
+                // The size matters as much as the copy. A process re-runs itself for as long as the stack it holds
+                // still has more than one batch in it, so handing over the whole stack would queue a process every
+                // tick that each worked through the entire stack again.
+                MultiblockProcessInWorld<PelletizerRecipe> process =
+                        new MultiblockProcessInWorld<>(recipe, inputStack.copyWithCount(batch));
                 if(state.processor.addProcessToQueue(process, level, true))
                 {
                     state.processor.addProcessToQueue(process, level, false);
-                    inputStack.shrink(recipe.itemIn.getCount());
+                    inputStack.shrink(batch);
+                    // Put it back through the handler so the change is marked dirty - shrinking in place is not seen.
+                    state.inventory.setStackInSlot(0, inputStack.isEmpty()?ItemStack.EMPTY: inputStack);
                 }
                 return;
             }
@@ -285,7 +301,7 @@ public class PelletizerLogic implements ISkinnableMultiblockLogic<State>, IServe
                     IOConstraint.OUTPUT
             ), markDirty);
 
-            this.energyCap = new StoredCapability<>(this.energy);
+            this.energyCap = new StoredCapability<>(IGReceiveOnlyEnergy.of(this.energy));
             this.output = new DroppingMultiblockOutput(OUTPUT_POS, ctx);
             this.processor = new MultiblockProcessor<>(64, 0, 8, ctx.getMarkDirtyRunnable(), PelletizerRecipe.RECIPES::getById);
 

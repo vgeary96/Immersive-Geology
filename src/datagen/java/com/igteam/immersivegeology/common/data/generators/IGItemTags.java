@@ -8,6 +8,8 @@
 
 package com.igteam.immersivegeology.common.data.generators;
 
+import com.igteam.immersivegeology.core.material.data.stone.IGStoneTypes;
+import com.igteam.immersivegeology.core.material.helper.material.IStoneType;
 import blusunrize.immersiveengineering.api.IETags;
 
 import com.igteam.immersivegeology.common.block.helper.IOreBlock;
@@ -33,6 +35,7 @@ import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
 import java.util.Collection;
+import java.util.Locale;
 import java.util.Set;
 import java.util.concurrent.CompletableFuture;
 import java.util.stream.Collectors;
@@ -107,6 +110,10 @@ public class IGItemTags extends ItemTagsProvider
 							{
 
 							}
+							if(itemFlag.equals(ItemCategoryFlags.GEAR))
+							{
+								tag(IETags.recyclingBlacklist).add(item);
+							}
 						}
 					}
 
@@ -116,6 +123,10 @@ public class IGItemTags extends ItemTagsProvider
 						{
 							generateOreBlockTags(material);
 						}
+						if(blockFlag.equals(BlockCategoryFlags.STORAGE_BLOCK))
+						{
+							generateStorageBlockTags(material);
+						}
 					}
 				}
 			}
@@ -123,10 +134,20 @@ public class IGItemTags extends ItemTagsProvider
 		IGLib.IG_LOGGER.info("Finished Registration of Immersive Geology Fluid Tags");
 	}
 
+	private void generateStorageBlockTags(MaterialInterface<?> material)
+	{
+		if(material.instance().checkExistingImplementation(BlockCategoryFlags.STORAGE_BLOCK)) return;
+		Item item = material.instance().getItem(BlockCategoryFlags.STORAGE_BLOCK);
+		if(item.equals(Items.COOKIE)||item.equals(Blocks.AIR.asItem())) return;
+
+		tag(IGTags.getStorageBlockItemTag(material.instance())).add(item);
+		tag(Tags.Items.STORAGE_BLOCKS).add(item);
+	}
+
 	boolean useOptionalTag = false;
 	private void generateOreBlockTags(MaterialInterface<?> material)
 	{
-		for(StoneEnum stone : StoneEnum.values())
+		for(IStoneType stone : IGStoneTypes.all())
 		{
 			for(OreRichness richness : OreRichness.values())
 			{
@@ -148,12 +169,14 @@ public class IGItemTags extends ItemTagsProvider
 				if(useOptionalTag)
 				{
 					useOptionalTag = false;
-					String name = oreBlock.getIGDescriptionId().toLowerCase();
+					String name = oreBlock.getIGDescriptionId().toLowerCase(Locale.ROOT);
 					String id = name.substring(name.lastIndexOf('.')+1);
 					tag(Tags.Items.ORES).addOptional(new ResourceLocation(IGLib.MODID, id));
+					tag(material.getItemMaterialTag()).addOptional(new ResourceLocation(IGLib.MODID, id));
 					continue;
 				}
 				tag(Tags.Items.ORES).add(oreBlock.asIGItem());
+				tag(material.getItemMaterialTag()).add(oreBlock.asIGItem());
 			}
 		}
 	}

@@ -8,18 +8,24 @@ import com.igteam.immersivegeology.core.material.helper.flags.IFlagType;
 import com.igteam.immersivegeology.core.material.helper.flags.MaterialFlags;
 import com.igteam.immersivegeology.core.material.helper.material.MaterialInterface;
 import com.igteam.immersivegeology.core.material.helper.material.StoneFormation;
-import com.sun.jna.platform.win32.WinDef.HINSTANCE;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.levelgen.feature.configurations.OreConfiguration.TargetBlockState;
 
 import java.util.List;
+import java.util.Locale;
 import java.util.Set;
 
 public class MaterialStone extends GeologyMaterial {
 
     protected StoneFormation STONE_FORMATION = StoneFormation.IGNEOUS_INTRUSIVE;
+
+    /**
+     * The dimensions this stone makes can spawn in. Overworld unless a subclass says otherwise.
+     */
+    protected Set<ResourceLocation> DIMENSIONS = Set.of(Level.OVERWORLD.location());
 
     public MaterialStone() {
         super();
@@ -37,6 +43,11 @@ public class MaterialStone extends GeologyMaterial {
     public StoneFormation getStoneFormation()
     {
         return this.STONE_FORMATION;
+    }
+
+    public Set<ResourceLocation> getDimensions()
+    {
+        return this.DIMENSIONS;
     }
 
     @Override
@@ -57,6 +68,6 @@ public class MaterialStone extends GeologyMaterial {
 
     public String getTFCStoneLoc()
     {
-        return "tfc:rock/raw/" + getName().toLowerCase();
+        return "tfc:rock/raw/" + getName().toLowerCase(Locale.ROOT);
     }
 }

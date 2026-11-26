@@ -1,77 +1,23 @@
 {
   "values": [
-    {
-      "id": "immersivegeology:minecraft_poor_ore_block_lignite_stone",
-      "required": false
-    },
-    {
-      "id": "immersivegeology:minecraft_normal_ore_block_lignite_stone",
-      "required": false
-    },
-    {
-      "id": "immersivegeology:minecraft_rich_ore_block_lignite_stone",
-      "required": false
-    },
-    {
-      "id": "immersivegeology:minecraft_poor_ore_block_lignite_deepslate",
-      "required": false
-    },
-    {
-      "id": "immersivegeology:minecraft_normal_ore_block_lignite_deepslate",
-      "required": false
-    },
-    {
-      "id": "immersivegeology:minecraft_rich_ore_block_lignite_deepslate",
-      "required": false
-    },
-    {
-      "id": "immersivegeology:minecraft_poor_ore_block_lignite_andesite",
-      "required": false
-    },
-    {
-      "id": "immersivegeology:minecraft_normal_ore_block_lignite_andesite",
-      "required": false
-    },
-    {
-      "id": "immersivegeology:minecraft_rich_ore_block_lignite_andesite",
-      "required": false
-    },
-    {
-      "id": "immersivegeology:minecraft_poor_ore_block_lignite_diorite",
-      "required": false
-    },
-    {
-      "id": "immersivegeology:minecraft_normal_ore_block_lignite_diorite",
-      "required": false
-    },
-    {
-      "id": "immersivegeology:minecraft_rich_ore_block_lignite_diorite",
-      "required": false
-    },
-    {
-      "id": "immersivegeology:minecraft_poor_ore_block_lignite_granite",
-      "required": false
-    },
-    {
-      "id": "immersivegeology:minecraft_normal_ore_block_lignite_granite",
-      "required": false
-    },
-    {
-      "id": "immersivegeology:minecraft_rich_ore_block_lignite_granite",
-      "required": false
-    },
-    {
-      "id": "immersivegeology:minecraft_poor_ore_block_lignite_end_stone",
-      "required": false
-    },
-    {
-      "id": "immersivegeology:minecraft_normal_ore_block_lignite_end_stone",
-      "required": false
-    },
-    {
-      "id": "immersivegeology:minecraft_rich_ore_block_lignite_end_stone",
-      "required": false
-    },
+    "immersivegeology:minecraft_poor_ore_block_lignite_stone",
+    "immersivegeology:minecraft_normal_ore_block_lignite_stone",
+    "immersivegeology:minecraft_rich_ore_block_lignite_stone",
+    "immersivegeology:minecraft_poor_ore_block_lignite_deepslate",
+    "immersivegeology:minecraft_normal_ore_block_lignite_deepslate",
+    "immersivegeology:minecraft_rich_ore_block_lignite_deepslate",
+    "immersivegeology:minecraft_poor_ore_block_lignite_andesite",
+    "immersivegeology:minecraft_normal_ore_block_lignite_andesite",
+    "immersivegeology:minecraft_rich_ore_block_lignite_andesite",
+    "immersivegeology:minecraft_poor_ore_block_lignite_diorite",
+    "immersivegeology:minecraft_normal_ore_block_lignite_diorite",
+    "immersivegeology:minecraft_rich_ore_block_lignite_diorite",
+    "immersivegeology:minecraft_poor_ore_block_lignite_granite",
+    "immersivegeology:minecraft_normal_ore_block_lignite_granite",
+    "immersivegeology:minecraft_rich_ore_block_lignite_granite",
+    "immersivegeology:minecraft_poor_ore_block_lignite_end_stone",
+    "immersivegeology:minecraft_normal_ore_block_lignite_end_stone",
+    "immersivegeology:minecraft_rich_ore_block_lignite_end_stone",
     {
       "id": "immersivegeology:ad_astra_poor_ore_block_lignite_mars_stone",
       "required": false

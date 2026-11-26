@@ -37,6 +37,7 @@ public class IGServerConfig
 	public static final Evaporates EVAPORITES;
 	public static final Machines MACHINES;
 	public static final VanillaOreRemoval REMOVAL;
+	public static final TerraFirmaCraft TFC;
 
 	public static final ForgeConfigSpec.BooleanValue disable_mineral_generation;
 
@@ -45,6 +46,7 @@ public class IGServerConfig
 		builder.push("global_settings").comment("Configure global server settings.");
 		disable_mineral_generation = builder.comment("Remove IG's Ore Generation in full.").define("disable_mineral_generation", false);
 		builder.pop();
+		TFC = new IGServerConfig.TerraFirmaCraft(builder);
 		MACHINES = new IGServerConfig.Machines(builder);
 		REMOVAL = new IGServerConfig.VanillaOreRemoval(builder);
 		EVAPORITES = new IGServerConfig.Evaporates(builder);
@@ -72,6 +74,28 @@ public class IGServerConfig
 	public static int getOrDefault(IntValue value)
 	{
 		return CONFIG_SPEC.isLoaded()?value.get(): value.getDefault();
+	}
+
+	public static <T> T getOrDefault(ForgeConfigSpec.ConfigValue<T> value)
+	{
+		return CONFIG_SPEC.isLoaded()?value.get(): value.getDefault();
+	}
+
+	public static class TerraFirmaCraft
+	{
+		public final ForgeConfigSpec.BooleanValue allow_all_in_overworld;
+
+		TerraFirmaCraft(ForgeConfigSpec.Builder builder)
+		{
+			builder.comment("Configure generation in TerraFirmaCraft worlds. These settings have no effect in any other world type, including a vanilla world in a pack that has TerraFirmaCraft installed.")
+					.push("terrafirmacraft");
+			this.allow_all_in_overworld = builder.comment(
+					"Let every mineral and native metal generate in the overworld, whatever its dimension whitelist says.",
+					"TFC builds its overworld out of igneous, metamorphic and sedimentary rock instead of Minecraft stone, so materials that have nowhere to sit in a vanilla overworld - the sulphides, which are otherwise confined to the Nether - have perfectly good host rock here.",
+					"Stone types are still respected either way: a material only ever generates where the rock in the ground actually accepts it, so turning this on does not put ore somewhere it does not belong."
+			).define("allow_all_in_overworld", true);
+			builder.pop();
+		}
 	}
 
 	public static class VanillaOreRemoval
@@ -117,17 +141,31 @@ public class IGServerConfig
 		Machines(ForgeConfigSpec.Builder builder)
 		{
 			builder.push("machines").comment("=== IG Machine Config Start ===");
-				for(TemplateMultiblock mb : IGRegistrationHolder.MB_TEMPLATE_MAP.values())
+				// Keyed on the registry name, which is what IIGMultiSkinHelper#multiblockName and
+				// MB_TEMPLATE_MAP use. Deriving it from getName() tied the config section to the
+				// human-readable display name, so any machine whose display name differed from its
+				// registry name ("Crude Bloomery" vs "bloomery") had issues previously.
+				for(Map.Entry<String, TemplateMultiblock> entry : IGRegistrationHolder.MB_TEMPLATE_MAP.entrySet())
 				{
-					if(mb instanceof IGConfigurableMachine config)
+					if(entry.getValue() instanceof IGConfigurableMachine config)
 					{
-						String mb_name = config.getName().toLowerCase().replace(' ', '_');
+						String mb_name = entry.getKey();
 						builder.push(mb_name);
 						machines.put(mb_name, new MachineConfig(builder, config));
 						builder.pop();
 					}
 				}
 			builder.pop();
+		}
+
+		/**
+		 * Configured default skin index for a multiblock's registry name, or the spec default if the
+		 * machine has no config section.
+		 */
+		public int getDefaultSkinOrdinal(String registryName)
+		{
+			MachineConfig config = machines.get(registryName);
+			return config!=null?config.default_skin_ordinal.get(): 0;
 		}
 
 		public static class MachineConfig
@@ -188,6 +226,7 @@ public class IGServerConfig
 			public final ForgeConfigSpec.IntValue rarity;
 			public final ForgeConfigSpec.BooleanValue useSparsePlacement;
 			public final ForgeConfigSpec.BooleanValue disabled;
+			public final ForgeConfigSpec.ConfigValue<List<? extends String>> dimension_whitelist;
 
 			private EvaporateConfig(ForgeConfigSpec.Builder builder, IWorldGenConfig mineral)
 			{
@@ -201,6 +240,10 @@ public class IGServerConfig
 				this.generationChance = builder.comment("The chance that this mineral is generated in a chunk, 2_000_000 is guaranteed spawn 0 prevents spawns").defineInRange("generation_chance",mineral.rarity(), 0, 2_000_000);
 				this.rarity = builder.comment("Controls ore quality distribution. Lower values favor richer ores, while higher values increase the likelihood of poorer ores. 50 is balanced.").defineInRange("rarity",mineral.rarity(), 0, 100);
 				this.useSparsePlacement = builder.comment("If enabled, mineral vein will only have a chance to spawn once every [16] chunks on average, inplace of every chunk.").define("useSparsePlacement", mineral.useSparsePlacement());
+				this.dimension_whitelist = builder.comment("A List of dimensions that this evaporate can generate in.").defineListAllowEmpty("dimension_whitelist",
+						mineral.getDefaultDimensions(),
+						obj -> obj instanceof String && ResourceLocation.isValidResourceLocation((String) obj)
+				);
 				builder.pop();
 			}
 		}

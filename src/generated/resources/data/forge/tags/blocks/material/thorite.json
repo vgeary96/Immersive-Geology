@@ -240,18 +240,9 @@
       "id": "immersivegeology:tfc_rich_ore_block_thorite_shale",
       "required": false
     },
-    {
-      "id": "immersivegeology:minecraft_poor_ore_block_thorite_end_stone",
-      "required": false
-    },
-    {
-      "id": "immersivegeology:minecraft_normal_ore_block_thorite_end_stone",
-      "required": false
-    },
-    {
-      "id": "immersivegeology:minecraft_rich_ore_block_thorite_end_stone",
-      "required": false
-    },
+    "immersivegeology:minecraft_poor_ore_block_thorite_end_stone",
+    "immersivegeology:minecraft_normal_ore_block_thorite_end_stone",
+    "immersivegeology:minecraft_rich_ore_block_thorite_end_stone",
     {
       "id": "immersivegeology:ad_astra_poor_ore_block_thorite_moon_stone",
       "required": false

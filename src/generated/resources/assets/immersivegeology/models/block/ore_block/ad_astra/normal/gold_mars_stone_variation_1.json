@@ -1,7 +1,7 @@
 {
   "parent": "immersivegeology:block/base/ore_block_sedimentary",
   "textures": {
-    "ore": "immersivegeology:block/colored/gold/ore/normal_1",
+    "ore": "immersivegeology:palette/block/ore_bearing/layered/normal_1_pristine_gold",
     "side": "ad_astra:block/mars_stone",
     "top": "ad_astra:block/mars_stone"
   }

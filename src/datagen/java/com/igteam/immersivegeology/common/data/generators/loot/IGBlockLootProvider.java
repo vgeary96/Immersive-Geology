@@ -13,7 +13,9 @@ import blusunrize.immersiveengineering.common.util.loot.BEDropLootEntry;
 import blusunrize.immersiveengineering.common.util.loot.DropInventoryLootEntry;
 import blusunrize.immersiveengineering.data.loot.LootUtils;
 import com.igteam.immersivegeology.common.block.entity.crate.IGCrateEntityType;
+import com.igteam.immersivegeology.common.block.entity.device.IGMetalDetector;
 import com.igteam.immersivegeology.common.block.helper.IGBlockType;
+import com.igteam.immersivegeology.common.item.IGMetalDetectorItem;
 import com.igteam.immersivegeology.common.block.helper.IOreBlock;
 import com.igteam.immersivegeology.common.block.ore.IGCrystalBlock;
 import com.igteam.immersivegeology.common.block.ore.IGEvaporateMineralBlock;
@@ -35,16 +37,19 @@ import net.minecraft.data.loot.LootTableSubProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.StringRepresentable;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.ItemLike;
+import com.igteam.immersivegeology.common.block.belt.IGSplitterBlock;
+import com.igteam.immersivegeology.common.block.belt.helper.SplitterHalf;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SlabBlock;
 import net.minecraft.world.level.block.state.properties.Property;
+import net.minecraft.world.level.storage.loot.functions.CopyNbtFunction;
+import net.minecraft.world.level.storage.loot.providers.nbt.ContextNbtProvider;
+import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraft.world.level.block.state.properties.SlabType;
 import net.minecraft.world.level.storage.loot.LootPool;
-import net.minecraft.world.level.storage.loot.LootPool.Builder;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.functions.*;
@@ -77,6 +82,8 @@ public class IGBlockLootProvider implements LootTableSubProvider
 		registerMultiblocks();
 		registerSlabs();
 		registerCrates();
+		registerDevices();
+		registerBelts();
 		registerAllRemainingAsDefault();
 
 		IGLib.IG_LOGGER.info("Finished Registration of Immersive Geology Block Loot");
@@ -114,12 +121,18 @@ public class IGBlockLootProvider implements LootTableSubProvider
 		this.registerMultiblock(IGMultiblockProvider.BALLMILL);
 		this.registerMultiblock(IGMultiblockProvider.PELLETIZER);
 		this.registerMultiblock(IGMultiblockProvider.REVERBERATION_FURNACE);
+		this.registerMultiblock(IGMultiblockProvider.BULK_BLAST_FURNACE);
 		this.registerMultiblock(IGMultiblockProvider.ROTARYKILN);
 		this.registerMultiblock(IGMultiblockProvider.CHEMICAL_REACTOR);
 		this.registerMultiblock(IGMultiblockProvider.GRAVITY_SEPARATOR);
 		this.registerMultiblock(IGMultiblockProvider.CRYSTALLIZER);
 		this.registerMultiblock(IGMultiblockProvider.COREDRILL);
 		this.registerMultiblock(IGMultiblockProvider.CENTRIFUGE);
+		this.registerMultiblock(IGMultiblockProvider.SMALL_CHEMICAL_REACTOR);
+		this.registerMultiblock(IGMultiblockProvider.FOUNDRY);
+		this.registerMultiblock(IGMultiblockProvider.STEAM_TURBINE);
+		this.registerMultiblock(IGMultiblockProvider.GEOTHERMAL_EXCHANGER);
+		this.registerMultiblock(IGMultiblockProvider.ALTERNATOR);
 	}
 
 	EnchantmentPredicate HAS_SILK = new EnchantmentPredicate(Enchantments.SILK_TOUCH, MinMaxBounds.Ints.atLeast(1));
@@ -193,6 +206,35 @@ public class IGBlockLootProvider implements LootTableSubProvider
 		}
 	}
 
+
+	/**
+	 * Blocks that are neither ores nor multiblocks nor built from a material, so
+	 * {@link #registerAllRemainingAsDefault()} - which only looks at {@link IGBlockType} - never reaches them.
+	 * Without an entry here they simply vanish when mined.
+	 */
+	private void registerDevices() {
+		// Both halves are the same block, so the drop is pinned to the lower one; otherwise breaking either half
+		// would hand back two detectors.
+		RegistryObject<Block> detector = IGRegistrationHolder.getBlockRegistryMap()
+				.get(IGRegistrationHolder.METAL_DETECTOR_KEY);
+		// Charge survives being picked up: the item hands the same tag straight back to the block entity when it
+		// is placed again, so a detector is never wiped by moving it.
+		this.register(detector, LootTable.lootTable().withPool(this.singleItem(detector.get().asItem())
+				.apply(CopyNbtFunction.copyData(ContextNbtProvider.BLOCK_ENTITY)
+						.copy(IGMetalDetectorItem.ENERGY_TAG, "BlockEntityTag."+IGMetalDetectorItem.ENERGY_TAG))
+				.when(this.propertyIs(detector, IGMetalDetector.HALF, DoubleBlockHalf.LOWER))));
+	}
+
+	private void registerBelts() {
+		for(String key : IGRegistrationHolder.BELT_KEYS)
+		{
+			RegistryObject<Block> belt = IGRegistrationHolder.getBlockRegistryMap().get(key);
+			var pool = this.singleItem(belt.get().asItem());
+			if(IGRegistrationHolder.SPLITTER_KEYS.contains(key))
+				pool = pool.when(this.propertyIs(belt, IGSplitterBlock.HALF, SplitterHalf.RIGHT));
+			this.register(belt, LootTable.lootTable().withPool(pool));
+		}
+	}
 
 	private void registerMultiblock(MultiblockRegistration<?> registration) {
 		this.registerMultiblock(registration.block());

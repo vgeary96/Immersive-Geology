@@ -1,4 +1,4 @@
-// 1.20.1	2026-03-27T21:46:10.704921	Tags for minecraft:fluid mod id immersivegeology
+// 1.20.1	2026-09-17T01:03:54.321401872	Tags for minecraft:fluid mod id immersivegeology
 4489299af4aa9d876479701264f77a7df0fd7a2c data/forge/tags/fluids/aluminum.json
 c911d9d82c742abc717d2350a1c52505a6d0a46c data/forge/tags/fluids/ammonia_solution.json
 cbd7066360f49fffe2c392da3588a6865e7623f3 data/forge/tags/fluids/aqua_regia.json
@@ -48,6 +48,7 @@ d48873c0fdedf146ef6f664e749161d1adff0764 data/forge/tags/fluids/clean_phosphoric
 b63ad53d11f64aa1fe365a8a76c91f90d16a1ee6 data/forge/tags/fluids/clean_sodium_hydroxide_aluminum.json
 f799857ca9ab7cb193772402b19f619800fa6ece data/forge/tags/fluids/clean_sodium_hydroxide_bauxite.json
 d23fa86e04109ab52fa81d294ae64bba322f59cf data/forge/tags/fluids/clean_sodium_hydroxide_unobtanium.json
+1ba44d1d5ea9e3a22e45d5af5f9e95642b8bedbf data/forge/tags/fluids/clean_sodium_hydroxide_zircon.json
 fd424c5ca50ff40e76c0e6ade160a6770a93f75b data/forge/tags/fluids/clean_sulfuric_acid_chromium.json
 1114f70884ebd8bcdc05fd7b21ae4656b61867c9 data/forge/tags/fluids/clean_sulfuric_acid_iron.json
 c30f6961e5c87f0bdec4f54d35b45bd3ebc67f83 data/forge/tags/fluids/clean_sulfuric_acid_millerite.json
@@ -97,6 +98,7 @@ d3a900f21cdfada4c32564d30acdad16028b177f data/forge/tags/fluids/cloudy_nitric_ac
 c8118d815364e257f47b4d9dcb9903bb17a2271c data/forge/tags/fluids/cloudy_sodium_hydroxide_aluminum.json
 1d76b2d834cbeda70fff3daad2d0396f775ed577 data/forge/tags/fluids/cloudy_sodium_hydroxide_bauxite.json
 40ca9f7086fb3c1f08f144b57030505250546519 data/forge/tags/fluids/cloudy_sodium_hydroxide_unobtanium.json
+5c928a6718f4c39416be184ec7e4945c37e19786 data/forge/tags/fluids/cloudy_sodium_hydroxide_zircon.json
 60d3159169b67f65f8059a5e8a29c762d22613f4 data/forge/tags/fluids/cloudy_sulfuric_acid_chromium.json
 c889092a1938fdf8f5d5a099346386efeda9a1a0 data/forge/tags/fluids/cloudy_sulfuric_acid_iron.json
 78a914a2ee69181aee336be2e89fb25fcacbcd9a data/forge/tags/fluids/cloudy_sulfuric_acid_millerite.json
@@ -116,7 +118,6 @@ a5c565a4b8b2994ee464351bc9777a3854b03ff5 data/forge/tags/fluids/gold.json
 78e5ee438b4b3cea54f7c3a11d01afac2d971035 data/forge/tags/fluids/hydrofluoric_acid.json
 6842f7212c275fc3b9f9ed3b8ae728288dc118cf data/forge/tags/fluids/hydrogen_sulfide.json
 56c3fba5f3db76951ee4183fdc39b35b36fe49a9 data/forge/tags/fluids/iron.json
-595911424cf32fbc0a7c50190f34b40bc1749d31 data/forge/tags/fluids/kovar.json
 c66b82f24bbfa085f69edb0fc8784a0f43f4102b data/forge/tags/fluids/lead.json
 bb26c723f26a4ed59e6023bf8788b21c271646ad data/forge/tags/fluids/magnesium.json
 6861ad721d51475beb0f251d691f63dcb8d3c555 data/forge/tags/fluids/manganese.json
@@ -127,8 +128,10 @@ c1c6df8f2b6be00ed5b3908d615da37674d39610 data/forge/tags/fluids/neodymium.json
 67d38f8f083670fe971d791294fdd819fa69c265 data/forge/tags/fluids/nitric_acid.json
 5dfdb7d714e423a7222f513c99a8749fa54d48c2 data/forge/tags/fluids/osmium.json
 3b89bed770158eee3775754e08693ed33a914d5b data/forge/tags/fluids/phosphoric_acid.json
+47c6d954f0b68dfd258d8012612ce7c57fe963c0 data/forge/tags/fluids/pig_iron.json
 9de866a7937ae0b2a7f888c59b043d29b58a8f99 data/forge/tags/fluids/platinum.json
 c316386cfb7aa77cafa7c9e7842acd3cf4808dd2 data/forge/tags/fluids/silver.json
+d78e56c8e3e3f57f0d06958198bf52742d762c30 data/forge/tags/fluids/slag.json
 9738721dcecf3b5f5341060225cc2a6c161ad0b3 data/forge/tags/fluids/sodium.json
 94753a00af1c9a5cbcc61dca04a53f01ac14a152 data/forge/tags/fluids/sodium_hydroxide.json
 7d3699df15beb0b58322f6bf8d3c4c64d698510a data/forge/tags/fluids/stainless_steel.json
@@ -146,4 +149,4 @@ a3d4f4fb4389b6ffb39e47747b0bb838e783447f data/forge/tags/fluids/tungsten_carbide
 54e971e29f4cd4132b743c8d3bea360c93afccb3 data/forge/tags/fluids/vanadium.json
 1d09e1c3f05ef1b9b09080e07fb0665dd62a1343 data/forge/tags/fluids/zinc.json
 a5cd8cc8588f063a3110ed98e885aaacfdbc5511 data/forge/tags/fluids/zirconium.json
-cf83bb51a8b3b688ec1f30b6c6ee692db707c52b data/tfc/tags/fluids/usable_in_ingot_mold.json
+d1fbc96db7d6873a9f090ded591ef9b53c40357e data/tfc/tags/fluids/usable_in_ingot_mold.json

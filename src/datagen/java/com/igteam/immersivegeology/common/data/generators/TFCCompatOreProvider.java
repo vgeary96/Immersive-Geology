@@ -35,6 +35,7 @@ import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.concurrent.CompletableFuture;
@@ -44,43 +45,28 @@ public class TFCCompatOreProvider implements DataProvider {
 	private final PackOutput output;
 	private final Map<ResourceLocation, Supplier<JsonElement>> elements = new HashMap<>();
 
-	// Constructor for setting up the PackOutput
 	public TFCCompatOreProvider(PackOutput output) {
 		this.output = output;
 		init();
 	}
 
 	private void init() {
-		// --- New soil disc generation ---
-		// Define the list of state mappings for soil disc changes.
-		// Define parameters for the soil disc feature.
 		int minRadius = 3;
 		int maxRadius = 5;
 		int height = 3;
-		// You can change "soil_disc_example" to any identifier you wish.
+
 		generateSoilDisc(minRadius, maxRadius, height, MineralEnum.Carnallite);
 		generateSoilDisc(minRadius, maxRadius, height, MineralEnum.Rocksalt);
 		generateSoilDisc(minRadius, maxRadius, height, MineralEnum.Saltpeter);
 	}
 
-	// --- New soil disc generation method ---
-	/**
-	 * Generates a JSON file for a soil disc feature.
-	 *
-	 * @param minRadius    Minimum radius for the disc.
-	 * @param maxRadius    Maximum radius for the disc.
-	 * @param height       Height of the disc.
-	 * @param mineral	   Mineral for the evaporate to use for the spawning
-	 */
 	public void generateSoilDisc(int minRadius, int maxRadius, int height, MaterialInterface<?> mineral) {
 		JsonObject root = new JsonObject();
 		List<StateMapping> stateMapping = new ArrayList<>();
-		String name = mineral.getName().toLowerCase() + "_tfc";
+		String name = mineral.getName().toLowerCase(Locale.ROOT) + "_tfc";
 		stateMapping.add(new StateMapping("tfc:dirt/sandy_loam", new ResourceLocation(IGLib.MODID, BlockCategoryFlags.EVAPORATE.getRegistryKey(mineral)).toString()));
 		stateMapping.add(new StateMapping("tfc:dirt/silty_loam", new ResourceLocation(IGLib.MODID, BlockCategoryFlags.EVAPORATE.getRegistryKey(mineral)).toString()));
 		stateMapping.add(new StateMapping("tfc:grass/sandy_loam", new ResourceLocation(IGLib.MODID, BlockCategoryFlags.EVAPORATE.getRegistryKey(mineral)).toString()));
-		// Optional comment (note that comments in JSON are not officially supported
-		// but some parsers ignore them)
 		root.addProperty("type", "tfc:soil_disc");
 
 		JsonObject config = new JsonObject();

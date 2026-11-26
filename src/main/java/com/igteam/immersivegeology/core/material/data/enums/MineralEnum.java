@@ -9,6 +9,7 @@
 package com.igteam.immersivegeology.core.material.data.enums;
 
 
+import com.igteam.immersivegeology.core.material.helper.material.IStoneType;
 import com.igteam.immersivegeology.common.block.helper.IOreBlock;
 import com.igteam.immersivegeology.common.block.helper.MineralWeathering;
 import com.igteam.immersivegeology.common.block.helper.OreRichness;
@@ -82,7 +83,7 @@ public enum MineralEnum implements MaterialInterface<MaterialMineral>, IWorldGen
         {
             for(MineralWeathering weathering : MineralWeathering.values())
             {
-                permutations.add(e.getName() + "/" + weathering.name().toLowerCase());
+                permutations.add(e.getName() + "/" + weathering.name().toLowerCase(Locale.ROOT));
             }
         });
 
@@ -101,7 +102,7 @@ public enum MineralEnum implements MaterialInterface<MaterialMineral>, IWorldGen
     }
 
     @Override
-    public IOreBlock getOreBlock(StoneEnum stone, OreRichness richness)
+    public IOreBlock getOreBlock(IStoneType stone, OreRichness richness)
     {
         if(material.getOreBlock(stone, richness) == null) return material.getOreBlock(StoneEnum.MCStone, richness);
         return material.getOreBlock(stone, richness);

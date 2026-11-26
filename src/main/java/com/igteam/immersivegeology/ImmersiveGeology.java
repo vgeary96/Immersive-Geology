@@ -4,6 +4,8 @@ import blusunrize.immersiveengineering.api.excavator.MineralMix;
 import blusunrize.immersiveengineering.api.multiblocks.TemplateMultiblock;
 import com.igteam.immersivegeology.client.IGClientRenderHandler;
 import com.igteam.immersivegeology.client.IGOverlayHandler;
+import com.igteam.immersivegeology.client.BeltLineGuideRenderer;
+import com.igteam.immersivegeology.client.EndergateGuideRenderer;
 import com.igteam.immersivegeology.client.menu.CreativeMenuHandler;
 
 import com.igteam.immersivegeology.common.block.helper.OreRichness;
@@ -17,6 +19,8 @@ import com.igteam.immersivegeology.core.ClientProxy;
 import com.igteam.immersivegeology.core.CommonProxy;
 import com.igteam.immersivegeology.core.lib.IGLib;
 import com.igteam.immersivegeology.core.material.GeologyMaterial;
+import com.igteam.immersivegeology.core.material.data.stone.IGStoneTypes;
+import com.igteam.immersivegeology.core.material.data.stone.config.IGStoneTypeConfig;
 import com.igteam.immersivegeology.core.material.helper.flags.BlockCategoryFlags;
 import com.igteam.immersivegeology.core.material.helper.flags.IFlagType;
 import com.igteam.immersivegeology.core.material.helper.flags.ItemCategoryFlags;
@@ -45,6 +49,7 @@ import net.minecraftforge.fml.loading.FMLLoader;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.function.BiFunction;
 import java.util.function.BiPredicate;
 
@@ -73,6 +78,13 @@ public class ImmersiveGeology {
         IGLib.IG_LOGGER.info("- World Event Handler Registration");
         MinecraftForge.EVENT_BUS.register(new IGWorldSubscription());
 
+        IGLib.IG_LOGGER.info("- Declared Stone Type Configuration Registration");
+
+        // Registered so it can be edited in game and so the file is written with its documentation. The rock
+        // types themselves are read straight from this same file during construction, above, because blocks for
+        // them have to exist before the registries freeze.
+        ModLoadingContext.get().registerConfig(Type.COMMON, IGStoneTypeConfig.SPEC, IGStoneTypeConfig.FILE_NAME);
+
         IGLib.IG_LOGGER.info("- Client Configuration Registration");
         ModLoadingContext.get().registerConfig(Type.CLIENT, IGClientConfig.CONFIG_SPEC);
 
@@ -92,6 +104,8 @@ public class ImmersiveGeology {
         MinecraftForge.EVENT_BUS.register(new CreativeMenuHandler());
         IGLib.IG_LOGGER.info("- Custom Multiblock Overlay Registration");
         MinecraftForge.EVENT_BUS.register(new IGOverlayHandler());
+        MinecraftForge.EVENT_BUS.register(new EndergateGuideRenderer());
+        MinecraftForge.EVENT_BUS.register(new BeltLineGuideRenderer());
 
         IGLib.IG_LOGGER.info("- Client Render Handler Registration");
         IGClientRenderHandler.register();
@@ -194,13 +208,17 @@ public class ImmersiveGeology {
         if(pattern.equals(ItemCategoryFlags.NORMAL_ORE) || pattern.equals(ItemCategoryFlags.RICH_ORE) || pattern.equals(ItemCategoryFlags.POOR_ORE))
         {
             OreRichness richness = pattern.equals(ItemCategoryFlags.NORMAL_ORE) ? OreRichness.NORMAL : (pattern.equals(ItemCategoryFlags.RICH_ORE) ? OreRichness.RICH : OreRichness.POOR);
-            test = new ResourceLocation(IGLib.MODID, "textures/item/colored/raw_ore/"+base.getName().toLowerCase()+"/"+richness.getSanitizedName() + ".png");
+            test = new ResourceLocation(IGLib.MODID, "textures/item/colored/raw_ore/"+base.getName().toLowerCase(Locale.ROOT)+"/"+richness.getSanitizedName() + ".png");
         }
         return test;
     }
 
     public void setup(final FMLCommonSetupEvent event)
     {
+        // Says, per declared rock type, how many minerals will actually generate in it - a rock can be
+        // declared correctly and still host nothing if no mineral accepts its formation in that dimension.
+        IGStoneTypes.logDeclaredStoneSummary();
+
         IGRegistrationHolder.buildMaterialRecipes();
         IGLib.IG_LOGGER.info("- Event Handler Registration");
         MinecraftForge.EVENT_BUS.register(new IGCommonForgeEvents());

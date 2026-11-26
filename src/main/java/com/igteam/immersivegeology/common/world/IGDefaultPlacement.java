@@ -8,16 +8,22 @@
 
 package com.igteam.immersivegeology.common.world;
 
+import com.igteam.immersivegeology.core.material.data.stone.IGStoneTypes;
+import com.igteam.immersivegeology.core.material.helper.material.IStoneType;
 import com.igteam.immersivegeology.common.config.IGServerConfig;
 import com.igteam.immersivegeology.common.config.IGServerConfig.Ores.OreConfig;
 import com.igteam.immersivegeology.common.world.features.IGOreFeature;
 import com.igteam.immersivegeology.common.world.features.IGOreFeature.IGOreFeatureConfig;
 import com.igteam.immersivegeology.common.world.features.IGOreFeature.Vein;
+import com.igteam.immersivegeology.common.world.compat.IGTFCWorld;
 import com.igteam.immersivegeology.common.world.features.helper.IGOreGenUtils;
 import com.igteam.immersivegeology.common.world.placements.IGCountPlacement;
 import com.igteam.immersivegeology.core.lib.IGLib;
+import com.igteam.immersivegeology.core.material.GeologyMaterial;
 import com.igteam.immersivegeology.core.material.data.enums.StoneEnum;
+import com.igteam.immersivegeology.core.material.data.stone.compat.adastra.MaterialAdAstraStone;
 import com.igteam.immersivegeology.core.material.helper.material.MaterialHelper;
+import com.igteam.immersivegeology.core.material.helper.material.StoneFormation;
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
@@ -47,7 +53,10 @@ import org.jetbrains.annotations.Nullable;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.EnumSet;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
@@ -92,6 +101,18 @@ public class IGDefaultPlacement extends PlacementFilter
 				biomeDownfall <= config.max_downfall.get();
 	}
 
+	public boolean rollsVein(ChunkPos chunk, long seed, OreConfig config, Holder<Biome> biome, ResourceLocation dimension)
+	{
+		if(MaterialAdAstraStone.MOON.equals(dimension) || MaterialAdAstraStone.MARS.equals(dimension))
+		{
+			StoneEnum stone = MaterialAdAstraStone.MOON.equals(dimension) ? StoneEnum.MoonStone : StoneEnum.MarsStone;
+			return config.canSpawn.get() && stone.isStoneTypeValid()
+					&& entry.instance().acceptableStoneType(stone.instance()) && canPlaceVein(chunk, seed, config);
+		}
+		return (biome.containsTag(BiomeTags.IS_END) ? canPlaceVeinEnd(chunk, seed, config) : canPlaceVein(chunk, seed, config))
+				&& canSpawnAt(biome);
+	}
+
 	public PlacementModifierType<?> type() {
 		return IGWorldGen.IG_DEFAULT_PLACEMENT.get();
 	}
@@ -112,37 +133,42 @@ public class IGDefaultPlacement extends PlacementFilter
 		}
 
 		Holder<Biome> biome = level.getBiome(worldPos);
+		ResourceLocation dimension = level.getLevel().dimension().location();
+		if(!rollsVein(chunkPos, seed, config, biome, dimension)) return false;
+
+		if(MaterialAdAstraStone.MOON.equals(dimension) || MaterialAdAstraStone.MARS.equals(dimension))
+		{
+			return isVeinWorthwhile(level, chunkPos, config);
+		}
+
 		boolean isOverworld = biome.containsTag(BiomeTags.IS_OVERWORLD);
 		boolean isEnd = biome.containsTag(BiomeTags.IS_END);
 		boolean isNether = biome.containsTag(BiomeTags.IS_NETHER);
 		if(isOverworld || isNether || isEnd)
 		{
-			boolean possiblePlace = (isEnd ? canPlaceVeinEnd(chunkPos, seed, config) : canPlaceVein(chunkPos, seed, config)) && canSpawnAt(biome);
-			if(!possiblePlace) return false;
-			MaterialHelper material = entry.instance();
-			boolean canSpawnOverworld = material.acceptableStoneType(StoneEnum.MCStone);
-			boolean canSpawnNether = material.acceptableStoneType(StoneEnum.MCNetherrack);
-			boolean canSpawnEnd = material.acceptableStoneType(StoneEnum.MCEndStone);
-			RandomSource random = IGOreGenUtils.getReuseRandom(entry, level.getSeed(), chunkPos);
-			Vein vein = IGOreFeature.createVein(random, config, entry);
+			GeologyMaterial material = entry.instance();
+
+			boolean canSpawnOverworld = declaredStoneHosts(material, Level.OVERWORLD.location())
+					|| (tfcOverworldOverride(level) && IGTFCWorld.canHostInOverworld(material));
+			boolean canSpawnNether = declaredStoneHosts(material, Level.NETHER.location());
+			boolean canSpawnEnd = declaredStoneHosts(material, Level.END.location());
 			if((canSpawnOverworld && isOverworld) || (canSpawnNether && isNether) || (canSpawnEnd && isEnd))
 			{
-				int maxY = config.maxY.get();
-				int minY =  config.minY.get();
-				return IGOreGenUtils.isVeinWorthwhile(level, chunkPos,  maxY, minY, vein);
+				return isVeinWorthwhile(level, chunkPos, config);
 			}
 		}
 		else
 		{
-			boolean possiblePlace = canPlaceVein(chunkPos, seed, config);
-			if(!possiblePlace) return false;
-			RandomSource random = IGOreGenUtils.getReuseRandom(entry, level.getSeed(), chunkPos);
-			Vein vein = IGOreFeature.createVein(random, config, entry);
-			int maxY = config.maxY.get();
-			int minY =  config.minY.get();
-			return IGOreGenUtils.isVeinWorthwhile(level, chunkPos,  maxY, minY, vein);
+			return isVeinWorthwhile(level, chunkPos, config);
 		}
 		return false;
+	}
+
+	private boolean isVeinWorthwhile(WorldGenLevel level, ChunkPos chunkPos, OreConfig config)
+	{
+		RandomSource random = IGOreGenUtils.getReuseRandom(entry, level.getSeed(), chunkPos);
+		Vein vein = IGOreFeature.createVein(random, config, entry);
+		return IGOreGenUtils.isVeinWorthwhile(level, chunkPos, config.maxY.get(), config.minY.get(), vein);
 	}
 	@Override
 	protected boolean shouldPlace(PlacementContext ctx, RandomSource rnd, BlockPos pos)
@@ -152,7 +178,58 @@ public class IGDefaultPlacement extends PlacementFilter
 		ResourceKey<Level> dimensionKey = serverLevel.dimension();
 		ResourceLocation dimensionID = dimensionKey.location();
 		Set<ResourceLocation> dimension_whitelist = getWhitelistedDimensions();
-		if(dimension_whitelist.contains(dimensionID)) return exposedPlace(serverLevel.getSeed(), ctx.getLevel(), new ChunkPos(pos), null);
+		if(dimension_whitelist.contains(dimensionID) || allowedByTFCOverworld(serverLevel))
+		{
+			return exposedPlace(serverLevel.getSeed(), ctx.getLevel(), new ChunkPos(pos), null);
+		}
+		return false;
+	}
+
+	/**
+	 * Whether this material rides the TFC overworld override into a dimension its whitelist does not name. Off by
+	 * config, off outside a TFC world, and off for materials TFC's rock cannot host in the first place.
+	 */
+	public boolean allowedByTFCOverworld(ServerLevel level)
+	{
+		return IGTFCWorld.isOverworld(level)
+				&& IGTFCWorld.overridesDimensionWhitelist(level)
+				&& IGTFCWorld.canHostInOverworld(entry.instance());
+	}
+
+	private static boolean tfcOverworldOverride(WorldGenLevel level)
+	{
+		return IGTFCWorld.isOverworld(level.getLevel()) && IGTFCWorld.overridesDimensionWhitelist(level.getLevel());
+	}
+
+	private static volatile Map<ResourceLocation, Set<StoneFormation>> declaredFormations;
+
+	private static Map<ResourceLocation, Set<StoneFormation>> declaredFormations()
+	{
+		Map<ResourceLocation, Set<StoneFormation>> cached = declaredFormations;
+		if(cached==null)
+		{
+			Map<ResourceLocation, Set<StoneFormation>> built = new HashMap<>();
+			for(IStoneType stone : IGStoneTypes.all())
+			{
+				if(!stone.declaresPresence()||!stone.isStoneTypeValid()) continue;
+				for(ResourceLocation dimension : stone.getDimensions())
+				{
+					built.computeIfAbsent(dimension, d -> EnumSet.noneOf(StoneFormation.class))
+							.add(stone.instance().getStoneFormation());
+				}
+			}
+			cached = Map.copyOf(built);
+			declaredFormations = cached;
+		}
+		return cached;
+	}
+
+	private static boolean declaredStoneHosts(GeologyMaterial material, ResourceLocation dimension)
+	{
+		for(StoneFormation formation : declaredFormations().getOrDefault(dimension, Set.of()))
+		{
+			if(material.isValidStoneFormation(formation)) return true;
+		}
 		return false;
 	}
 

@@ -7,6 +7,8 @@
  */
 package com.igteam.immersivegeology.core.registration;
 
+import com.igteam.immersivegeology.core.material.data.stone.IGStoneTypes;
+import com.igteam.immersivegeology.core.material.helper.material.IStoneType;
 import blusunrize.immersiveengineering.api.multiblocks.MultiblockHandler;
 import blusunrize.immersiveengineering.api.multiblocks.MultiblockHandler.IMultiblock;
 import blusunrize.immersiveengineering.api.multiblocks.TemplateMultiblock;
@@ -20,16 +22,36 @@ import blusunrize.immersiveengineering.api.multiblocks.blocks.logic.IMultiblockS
 import blusunrize.immersiveengineering.common.blocks.metal.MetalScaffoldingType;
 import com.google.common.collect.ImmutableSet;
 import com.igteam.immersivegeology.client.menu.IGItemGroup;
+import com.igteam.immersivegeology.client.menu.ItemSubGroup;
+import com.igteam.immersivegeology.common.item.IGMetalDetectorItem;
+import com.igteam.immersivegeology.common.item.IGUshankaItem;
 import com.igteam.immersivegeology.common.block.*;
+import com.igteam.immersivegeology.common.block.belt.helper.BeltStyle;
+import com.igteam.immersivegeology.common.block.belt.IGBeltBlock;
+import com.igteam.immersivegeology.common.block.belt.entity.IGBeltBlockEntity;
+import com.igteam.immersivegeology.common.block.belt.IGRisingBeltBlock;
+import com.igteam.immersivegeology.common.block.belt.IGPoweredBeltBlock;
+import com.igteam.immersivegeology.common.block.belt.IGDroppingBeltBlock;
+import com.igteam.immersivegeology.common.block.belt.IGExtractionBeltBlock;
+import com.igteam.immersivegeology.common.block.belt.IGSplitterBlock;
+import com.igteam.immersivegeology.common.block.belt.IGEndergateBlock;
+import com.igteam.immersivegeology.common.block.belt.item.IGEndergateItem;
+import com.igteam.immersivegeology.common.block.belt.entity.IGEndergateBlockEntity;
+import com.igteam.immersivegeology.common.block.belt.item.IGBeltItem;
+import com.igteam.immersivegeology.common.block.belt.entity.IGSplitterBlockEntity;
+import com.igteam.immersivegeology.common.block.belt.entity.IGPoweredBeltBlockEntity;
 import com.igteam.immersivegeology.common.block.entity.cable.IGEnergyPipe;
 import com.igteam.immersivegeology.common.block.entity.cable.IGEnergyPipeEntity;
 import com.igteam.immersivegeology.common.block.entity.crate.IGCrateEntity;
+import com.igteam.immersivegeology.common.block.entity.device.IGMetalDetector;
+import com.igteam.immersivegeology.common.block.entity.device.IGMetalDetectorEntity;
 import com.igteam.immersivegeology.common.block.entity.crate.IGCrateEntityType;
 import com.igteam.immersivegeology.common.block.entity.vent.IGHydroVent;
 import com.igteam.immersivegeology.common.block.entity.vent.IGHydroVentEntity;
 import com.igteam.immersivegeology.common.block.helper.IGBlockType;
 import com.igteam.immersivegeology.common.block.helper.OreRichness;
 import com.igteam.immersivegeology.common.block.multiblocks.*;
+import com.igteam.immersivegeology.common.block.multiblocks.logic.FoundryLogic;
 import com.igteam.immersivegeology.common.block.multiblocks.logic.helper.IGMultiblockBuilder;
 import com.igteam.immersivegeology.common.block.multiblocks.skins.*;
 import com.igteam.immersivegeology.common.block.multiblocks.skins.helpers.IIGMultiSkinHelper;
@@ -50,9 +72,7 @@ import com.igteam.immersivegeology.common.particle.IGParticles;
 import com.igteam.immersivegeology.core.lib.IGLib;
 import com.igteam.immersivegeology.core.lib.ResourceUtils;
 import com.igteam.immersivegeology.core.material.GeologyMaterial;
-import com.igteam.immersivegeology.core.material.data.chemical.MaterialHydrochloricAcid;
 import com.igteam.immersivegeology.core.material.data.enums.*;
-import com.igteam.immersivegeology.core.material.data.misc.MaterialSilicon;
 import com.igteam.immersivegeology.core.material.data.types.MaterialChemical;
 import com.igteam.immersivegeology.core.material.helper.flags.*;
 import com.igteam.immersivegeology.core.material.helper.material.MaterialHelper;
@@ -184,7 +204,7 @@ public class IGRegistrationHolder {
 
     private static final List<Consumer<IEventBus>> MOD_BUS_CALLBACKS = new ArrayList<>();
 
-    private static boolean checkModMaterialsForOverlap(StoneEnum stoneType, GeologyMaterial ore, IFlagType<?> flag)
+    private static boolean checkModMaterialsForOverlap(IStoneType stoneType, GeologyMaterial ore, IFlagType<?> flag)
     {
         Map<ModFlags, Map<IFlagType<?>, MaterialHelper>> ore_map = ore.getExistingImplementationMap();
         for(ModFlags mod : ModFlags.values()) {
@@ -250,11 +270,47 @@ public class IGRegistrationHolder {
     }
 
     public static RegistryObject<BlockEntityType<IGEnergyPipeEntity>> ENERGY_PIPE;
+    public static RegistryObject<BlockEntityType<IGMetalDetectorEntity>> METAL_DETECTOR;
+    public static final String METAL_DETECTOR_KEY = "metal_detector";
+    public static final String USHANKA_KEY = "armor_russian_helmet";
     public static RegistryObject<BlockEntityType<IGHydroVentEntity>> IG_HYDROVENT;
+    public static RegistryObject<BlockEntityType<IGBeltBlockEntity>> BELT;
+    public static final List<BeltStyle> BELT_STYLES = List.of(BeltStyle.STEEL, BeltStyle.STEEL_COVERED);
+    public static final List<String> BELT_KEYS = new ArrayList<>();
+    public static final List<String> POWERED_BELT_KEYS = new ArrayList<>();
+    public static RegistryObject<BlockEntityType<IGPoweredBeltBlockEntity>> POWERED_BELT;
+    public static final List<String> SPLITTER_KEYS = new ArrayList<>();
+    public static final String ENDERGATE_KEY = "steel_endergate";
+    public static final String ENDERGATE_COVERED_KEY = "steel_endergate_covered";
+    public static final List<String> ENDERGATE_KEYS = List.of(ENDERGATE_KEY, ENDERGATE_COVERED_KEY);
+    public static RegistryObject<BlockEntityType<IGEndergateBlockEntity>> ENDERGATE;
+    public static final int ENDERGATE_RANGE = 8;
+    public static RegistryObject<BlockEntityType<IGSplitterBlockEntity>> SPLITTER;
     public static void initialize()
     {
 
         IGLib.IG_LOGGER.info("- Static Items and Blocks");
+        registerBlock(METAL_DETECTOR_KEY, IGMetalDetector::new);
+        registerItem(METAL_DETECTOR_KEY, () -> new IGMetalDetectorItem(getBlock.apply(METAL_DETECTOR_KEY)));
+
+        IGItemGroup.addLooseItem(ItemSubGroup.structural, () -> getItem.apply(METAL_DETECTOR_KEY));
+        registerBelt(ENDERGATE_KEY, () -> new IGEndergateBlock(BeltStyle.STEEL, ENDERGATE_RANGE), block -> new IGEndergateItem(block, new Item.Properties()));
+        registerBelt(ENDERGATE_COVERED_KEY, () -> new IGEndergateBlock(BeltStyle.STEEL_COVERED, ENDERGATE_RANGE), block -> new IGEndergateItem(block, new Item.Properties()));
+        for(BeltStyle style : BELT_STYLES)
+        {
+            registerBelt(style.registryKey(""), () -> new IGBeltBlock(style));
+            registerBelt(style.registryKey("rising"), () -> new IGRisingBeltBlock(style));
+            String powered = style.registryKey("powered");
+            POWERED_BELT_KEYS.add(powered);
+            registerBelt(powered, () -> new IGPoweredBeltBlock(style));
+            registerBelt(style.registryKey("dropping"), () -> new IGDroppingBeltBlock(style));
+            registerBelt(style.registryKey("extraction"), () -> new IGExtractionBeltBlock(style));
+            String splitter = style.registryKey("splitter");
+            SPLITTER_KEYS.add(splitter);
+            registerBelt(splitter, () -> new IGSplitterBlock(style));
+        }
+        registerItem(USHANKA_KEY, IGUshankaItem::new);
+        IGItemGroup.addLooseItem(ItemSubGroup.structural, () -> getItem.apply(USHANKA_KEY));
         registerItem("prospector_kit", () -> new IGMineralTestingItem(ItemCategoryFlags.MISC, StoneEnum.MCStone, 128));
         registerItem("prospector_kit_steel", () -> new IGMineralTestingItem(ItemCategoryFlags.MISC, MetalEnum.StainlessSteel, 4096));
         registerItem(ItemCategoryFlags.HAMMER.getRegistryKey(MetalEnum.Bronze), () -> new IGMBFormationItem(ItemCategoryFlags.HAMMER, MetalEnum.Bronze, 256));
@@ -327,12 +383,15 @@ public class IGRegistrationHolder {
                         }
                         case ORE_BLOCK -> {
                             // for each stone type: stoneMaterial needs to be implemented for each ore block
-                            for (StoneEnum base : StoneEnum.values()) {
-                                // checks is the material has any ModFlags (e.g. Beyond Earth)
+                            for (IStoneType base : IGStoneTypes.all()) {
+                                // checks if the material has any ModFlags (e.g. Beyond Earth)
                                 if(!base.hasFlag(MaterialFlags.IS_ORE_BEARING)) continue;
                                 if(!material.instance().acceptableStoneType(base.instance())) continue;
                                 if(Arrays.stream(ModFlags.values()).anyMatch((m) -> !m.isStrictlyLoaded() && base.hasFlag(m)) &! DatagenModLoader.isRunningDataGen()) continue;
                                 if(checkModMaterialsForOverlap(base, material.instance(), flags)) continue;
+                                // A declared rock type can name minerals it will not host, for when the mod that
+                                // owns the rock already has that ore itself.
+                                if(base.excludesOre(material.instance())) continue;
                                 // After all checks, now we can generate the different ore levels
                                 for(OreRichness richness : OreRichness.values()){
                                     String registryKey = blockCategory.getRegistryKey(material, base, richness);
@@ -355,7 +414,7 @@ public class IGRegistrationHolder {
                             if(hasExistingImplementation) continue;
                             for(MetalScaffoldingType type : MetalScaffoldingType.values())
                             {
-                                String registryKey = blockCategory.getRegistryKey(material) + "_" + type.name().toLowerCase();
+                                String registryKey = blockCategory.getRegistryKey(material) + "_" + type.name().toLowerCase(Locale.ROOT);
                                 Supplier<Block> blockProvider = () -> new IGScaffoldingBlock(type, material);
                                 registerBlock(registryKey, blockProvider);
                                 registerItem(registryKey, () -> new IGGenericBlockItem((IGBlockType) getBlock.apply(registryKey)));
@@ -466,6 +525,10 @@ public class IGRegistrationHolder {
                         {
                             registerItem(itemCategoryFlags.getRegistryKey(material), () -> new IGCustomTool(material.getToolTier(), material.getToolDamage(), material.getToolSpeed(), itemCategoryFlags, material));
                         }
+                        case MOLD_PLATE, MOLD_GEAR, MOLD_ROD, MOLD_WIRE, MOLD_BLOCK, MOLD_INGOT, MOLD_NUGGET ->
+                        {
+                            registerItem(itemCategoryFlags.getRegistryKey(material), () -> new IGGenericItem(itemCategoryFlags, material, new Item.Properties().durability(FoundryLogic.MOLD_DURABILITY)));
+                        }
                         default -> {
                             if(hasExistingImplementation) continue;
                             registerItem(itemCategoryFlags.getRegistryKey(material), () -> new IGGenericItem(itemCategoryFlags, material));
@@ -476,8 +539,27 @@ public class IGRegistrationHolder {
         }
 
         ENERGY_PIPE = TE_REGISTER.register("energy_pipe_type", makeType(IGEnergyPipeEntity::new, () -> MiscEnum.Cable.getBlock(BlockCategoryFlags.ENERGY_PIPE)));
+        BELT = TE_REGISTER.register("belt_type", makeTypeMultipleBlocks(IGBeltBlockEntity::new, BELT_KEYS.stream().filter(key -> !POWERED_BELT_KEYS.contains(key)&&!SPLITTER_KEYS.contains(key)&&!ENDERGATE_KEYS.contains(key)).<Supplier<Block>>map(key -> () -> getBlock.apply(key)).toList()));
+        ENDERGATE = TE_REGISTER.register("endergate_type", makeTypeMultipleBlocks(IGEndergateBlockEntity::new, ENDERGATE_KEYS.stream().<Supplier<Block>>map(key -> () -> getBlock.apply(key)).toList()));
+        SPLITTER = TE_REGISTER.register("splitter_type", makeTypeMultipleBlocks(IGSplitterBlockEntity::new, SPLITTER_KEYS.stream().<Supplier<Block>>map(key -> () -> getBlock.apply(key)).toList()));
+        POWERED_BELT = TE_REGISTER.register("powered_belt_type", makeTypeMultipleBlocks(IGPoweredBeltBlockEntity::new, POWERED_BELT_KEYS.stream().<Supplier<Block>>map(key -> () -> getBlock.apply(key)).toList()));
+        METAL_DETECTOR = TE_REGISTER.register("metal_detector_type", makeType((pos, state) -> new IGMetalDetectorEntity(METAL_DETECTOR.get(), pos, state), () -> getBlock.apply(METAL_DETECTOR_KEY)));
 
         IGLib.IG_LOGGER.info("Finished");
+    }
+
+    private static void registerBelt(String key, Supplier<Block> block)
+    {
+        registerBelt(key, block, b -> new IGBeltItem(b, new Item.Properties()));
+    }
+
+    private static void registerBelt(String key, Supplier<Block> block, Function<Block, Item> item)
+    {
+        BELT_KEYS.add(key);
+        registerBlock(key, block);
+        registerItem(key, () -> item.apply(getBlock.apply(key)));
+        if(!key.endsWith("_covered"))
+            IGItemGroup.addLooseItem(ItemSubGroup.structural, () -> getItem.apply(key));
     }
 
     public static MultiblockRegistration<?> getMB(String key){
@@ -493,6 +575,7 @@ public class IGRegistrationHolder {
         registerMB("chemical_reactor", IGChemicalReactorMultiblock.INSTANCE, IGMultiblockProvider.CHEMICAL_REACTOR, IGChemicalReactorSkins.class);
         registerMB("rotary_kiln", IGRotaryKilnMultiblock.INSTANCE, IGMultiblockProvider.ROTARYKILN, IGRotaryKilnSkins.class);
         registerMB("reverberation_furnace", IGReverberationFurnaceMultiblock.INSTANCE, IGMultiblockProvider.REVERBERATION_FURNACE, IGRevFurnaceSkins.class);
+        registerMB("bulk_blast_furnace", IGBulkBlastFurnaceMultiblock.INSTANCE, IGMultiblockProvider.BULK_BLAST_FURNACE);
         registerMB("geothermal_exchanger", IGGeothermalExchangerMultiblock.INSTANCE, IGMultiblockProvider.GEOTHERMAL_EXCHANGER, IGGeothermalSkins.class);
         registerMB("pelletizer", IGPelletizerMultiblock.INSTANCE, IGMultiblockProvider.PELLETIZER, IGPelletizerSkins.class);
         registerMB("steam_turbine", IGSteamTurbineMultiblock.INSTANCE, IGMultiblockProvider.STEAM_TURBINE, IGSteamTurbineSkins.class);

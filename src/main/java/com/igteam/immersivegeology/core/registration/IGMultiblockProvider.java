@@ -35,7 +35,8 @@ public class IGMultiblockProvider {
 
     public static final MultiblockRegistration<FoundryLogic.State> FOUNDRY = IGRegistrationHolder.registerMetalMultiblock("foundry", new FoundryLogic(), () -> IGRegistrationHolder.getMBTemplate.apply("foundry"),
             builder -> {
-                builder.redstone(state -> state.rsState, FoundryLogic.REDSTONE_IN);
+                builder.redstone(state -> state.rsState, FoundryLogic.REDSTONE_INPUTS);
+                builder.gui(IGMenuTypes.FOUNDRY);
             });
 
     public static final MultiblockRegistration<CoreDrillLogic.State> COREDRILL = metal_skinnable(new CoreDrillLogic(), "coredrill", false, CoreDrillPart::new)
@@ -46,6 +47,12 @@ public class IGMultiblockProvider {
     public static final MultiblockRegistration<RevFurnaceLogic.State> REVERBERATION_FURNACE = stone_skinnable(new RevFurnaceLogic(),"reverberation_furnace", false, RevFurnacePart::new)
             .structure(() -> IGRegistrationHolder.getMBTemplate.apply("reverberation_furnace"))
             .gui(IGMenuTypes.REVERBERATION_FURNACE)
+            .build();
+
+    public static final MultiblockRegistration<BulkBlastFurnaceLogic.State> BULK_BLAST_FURNACE = stone(new BulkBlastFurnaceLogic(), "bulk_blast_furnace", false)
+            .structure(() -> IGRegistrationHolder.getMBTemplate.apply("bulk_blast_furnace"))
+            .redstone(state -> state.rsState, BulkBlastFurnaceLogic.REDSTONE_INPUTS)
+            .gui(IGMenuTypes.BULK_BLAST_FURNACE)
             .build();
 
     public static final MultiblockRegistration<BloomeryLogic.State> BLOOMERY = stone_skinnable(new BloomeryLogic(), "bloomery", false, BloomeryPart::new)

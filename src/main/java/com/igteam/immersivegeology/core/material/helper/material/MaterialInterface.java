@@ -1,5 +1,6 @@
 package com.igteam.immersivegeology.core.material.helper.material;
 
+import com.igteam.immersivegeology.core.material.helper.material.IStoneType;
 import blusunrize.immersiveengineering.api.multiblocks.MultiblockHandler.IMultiblock;
 import com.igteam.immersivegeology.client.helper.IGVeinTextureType;
 
@@ -30,6 +31,7 @@ import net.minecraftforge.fluids.FluidType;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.LinkedHashSet;
+import java.util.Locale;
 import java.util.Set;
 
 public interface MaterialInterface<T extends GeologyMaterial> {
@@ -104,7 +106,7 @@ public interface MaterialInterface<T extends GeologyMaterial> {
 
 	default Block getBlock(BlockCategoryFlags flag) {return instance().getBlock(flag);};
 
-    default IOreBlock getOreBlock(StoneEnum stone, OreRichness richness) {
+    default IOreBlock getOreBlock(IStoneType stone, OreRichness richness) {
         return instance().getOreBlock(stone, richness);
     };
 
@@ -119,6 +121,11 @@ public interface MaterialInterface<T extends GeologyMaterial> {
 	default IGVeinTextureType getVeinTextureType()
     {
         return instance().getVeinTextureType();
+    }
+
+	default boolean hasStoneBackdrop()
+    {
+        return instance().hasStoneBackdrop();
     }
 
     default MaterialInterface<?> getPrimaryProduct() {return instance().getPrimaryProduct();}
@@ -151,9 +158,18 @@ public interface MaterialInterface<T extends GeologyMaterial> {
         return null;
     }
 
+    /**
+     * Prefer this over {@link #getTranslationName()} for anything sent to a player: a dedicated server has no mod
+     * language files loaded, so resolving the key there yields the key itself.
+     */
+    default Component getTranslation()
+    {
+        return Component.translatable("material.immersivegeology." + getName().toLowerCase(Locale.ROOT));
+    };
+
     default String getTranslationName()
     {
-        return Component.translatable("material.immersivegeology." + getName().toLowerCase()).getString();
+        return getTranslation().getString();
     };
 
     default float getDefaultNoiseProbability()

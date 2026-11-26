@@ -8,6 +8,8 @@
 
 package com.igteam.immersivegeology.common.data.generators.manual;
 
+import com.igteam.immersivegeology.core.material.data.stone.IGStoneTypes;
+import com.igteam.immersivegeology.core.material.helper.material.IStoneType;
 import com.google.common.base.Preconditions;
 import com.google.common.hash.Hashing;
 import com.google.gson.Gson;
@@ -38,6 +40,7 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.concurrent.CompletableFuture;
@@ -79,12 +82,12 @@ public class IGManualProvider implements DataProvider
 			if(worldGenConfig instanceof GeologyMaterial material)
 			{
 				OreConfig oreConfig = entry.getValue();
-				String name = worldGenConfig.getName().toLowerCase();
+				String name = worldGenConfig.getName().toLowerCase(Locale.ROOT);
 				ManualPageProvider intro_provider = attemptPageCreation(name);
 				ManualPageProvider processing_provider = attemptPageCreation(name+"_processing");
 
 				ArrayList<ResourceLocation> intro_display_list = new ArrayList<>();
-				for(StoneEnum stone : StoneEnum.values())
+				for(IStoneType stone : IGStoneTypes.all())
 				{
 					IOreBlock oreDisplay = material.getOreBlock(stone, OreRichness.NORMAL);
 					if(stone.isStoneTypeValid())
@@ -112,7 +115,7 @@ public class IGManualProvider implements DataProvider
 
 	private void buildMineralIntroPage(StringBuilder builder, OreConfig oreConfig, IWorldGenConfig worldGenConfig, GeologyMaterial mineral){
 		String mineral_name = worldGenConfig.getName();
-		String title_name = mineral_name.substring(0,1).toUpperCase() + mineral_name.substring(1).toLowerCase();
+		String title_name = mineral_name.substring(0,1).toUpperCase(Locale.ROOT) + mineral_name.substring(1).toLowerCase(Locale.ROOT);
 		boolean hasBiomePreffered = worldGenConfig.getPreferredBiome().isPresent();
 		builder.append(title_name).append(" is a material found in the ").append(hasBiomePreffered?worldGenConfig.getPreferredBiome().get().toString(): "Anywhere").append(".\n");
 
